@@ -1,0 +1,230 @@
+/* start header */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Css for header */
+/* Head1 */
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif; /* Đảm bảo font được sử dụng chính xác */
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    width: 1440px;
+    background-image: url('./img/Hero\ \(1\).png'); /* Đảm bảo đường dẫn đúng */
+}
+
+.hero {
+    position: relative;
+    background-position: center;
+    height: 594px;
+    width: 1080px;
+}
+
+.head_1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+}
+
+.header_1-left, .header_1-right {
+    display: flex;
+    gap: 24px;
+}
+
+.header_content {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Head2 */
+.head_2 {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 14px 40px; 
+    background-color: #f8f8f8; 
+    border-radius: 40px;
+}
+
+.shop-logo {
+    display: flex;
+    align-items: center;
+}
+
+.shop-logo img {
+    max-height: 50px; 
+    margin-right: 10px; 
+}
+
+.shop-logo p {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 8px;
+}
+
+.menu {
+    flex-grow: 1; 
+    text-align: center; 
+}
+
+.list-menu {
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+}
+
+.list-menu li {
+    margin: 0 15px; 
+    cursor: pointer; 
+    position: relative;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.list-menu li:hover {
+    color: #F87537;
+}
+
+.list-menu li::after {
+    content: ''; 
+    position: absolute;
+    bottom: -5px; 
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #F87537;
+    opacity: 0; 
+    transition: opacity 0.3s; 
+}
+
+.list-menu li:hover::after {
+    opacity: 1; 
+}
+
+.input-head {
+    display: flex;
+    align-items: center; 
+}
+
+.input-head_search {
+    position: relative; 
+    margin-right: 20px; 
+}
+
+.input-head_search input {
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 20px; 
+    width: 200px;
+    border: none;
+    outline: none;
+}
+
+.input-head_search i {
+    position: absolute; 
+    right: 10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background-color: black; 
+    color: white;
+    border-radius: 50%; 
+    padding: 8px; 
+}
+
+.input-head i {
+    margin-left: 20px; 
+    cursor: pointer; 
+}
+
+/* hero_content */
+.hero_content {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    max-width: 1200px; 
+    margin: auto;
+    margin-top: 174px;
+}
+
+.hero_content-left {
+    flex: 1; 
+    max-width: 600px;
+    margin-top: -116px;
+}
+
+.hero_content-left h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FD7E14;
+}
+
+.hero_content-left h2 {
+    font-size: 40px;
+    margin: 10px 0;
+    color: #333; 
+    font-weight: bold;
+}
+
+.hero_content-left p {
+    font-size: 14px; 
+    color: #444; 
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif; /* Sử dụng font chính cho đoạn văn */
+}
+
+.hero_content-right {
+    flex: 1;
+    display: flex; 
+    justify-content: center; 
+}
+
+.hero_content-right img {
+    max-width: 100%; /* Giữ đúng tỷ lệ */
+    height: auto; 
+    object-fit: contain; /* Đảm bảo hình ảnh không bị kéo dãn */
+}
+
+/* Add more */
+i {
+    font-size: 20px;
+}
+
+.fa-paw {
+    font-size: 30px;
+}
+/* end header */
+ 
+
+/* start shoopng cart */
+/* .shopping_cart{
+    width:1440px;
+    height:3004px;
+} */
+
+
+.cart .title{
+    margin-top:37px;
+    margin-left:60px ;
+    margin-bottom: 52px;
+    margin-right: 998px;
+    font-size: 50px;  
+    font-weight: bold;
+}
+
+.cart i{
+    margin-right: 102px;
+    margin-bottom: 52px;
+    margin-top: 31px;
+}

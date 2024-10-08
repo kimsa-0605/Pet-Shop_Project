@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 3004px;
+            background-color: #f5f5f5;
+        }
+        h2{
+            font-size: 40px;
+        }
+
+        .cart-container {
+            width: 1440px;
+            height: 3004px;
+            background-color: white;
+            padding: 40px;
+   
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .cart-table th {
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .cart-table th {
+            background-color: #ffa500;
+            font-weight: normal; /* Loại bỏ chữ in đậm */
+        }
+
+        .cart-summary {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        .total-product, .quantity {
+            display: flex; 
+        }
+        #total-price{
+            margin-left: 984px;
+            margin-right: 155px;
+
+        }
+        #total-quantity{
+            margin-left: 1095px;
+            margin-right: 163px;
+
+        }
+
+   
+
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffa500;
+            font-size: 24px;
+        }
+
+        .continue-button {
+            width: 100%;
+        }
+
+        .clear-cart {
+            font-size: 24px;
+        }
+
+        .cart-table img {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-header">
+            <button class="go-home"><i class="fas fa-angle-left return"></i></button>
+            <h2>My cart</h2>
+            <button class="clear-cart"><i class="far fa-trash-alt delete_1"></i></button>
+        </div>
+
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Dynamic items will be added here -->
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <div class="total-product">
+                <p>Total product price:</p>
+                <span id="total-price">$0</span>
+            </div>
+            <div class="quantity">
+                <p>Quantity:</p>
+                <span id="total-quantity">0</span>
+            </div>
+        </div>
+        
+        <button class="continue-button">Continue</button>
+    </div>
+   
+   
+    
+</body>
+</html>
+<!-- 
+<script>
+        const cartItems = [
+            { id: 1, name: 'Product 1', price: 5.99, quantity: 1, img: 'img-url' },
+            { id: 2, name: 'Product 2', price: 7.99, quantity: 1, img: 'img-url' },
+            { id: 3, name: 'Product 3', price: 9.99, quantity: 1, img: 'img-url' }
+        ];
+
+        const cartTable = document.getElementById('cart-items');
+        const totalPriceEl = document.getElementById('total-price');
+        const totalQuantityEl = document.getElementById('total-quantity');
+
+        // Render cart items
+        function renderCart() {
+            cartTable.innerHTML = '';
+            let totalQuantity = 0;
+            let totalPrice = 0;
+
+            cartItems.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><img src="${item.img}" alt="product image" width="50px"> ${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>
+                        <button class="quantity-btn" data-id="${item.id}" data-action="decrease">-</button>
+                        ${item.quantity}
+                        <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
+                    </td>
+                    <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                    <td><button class="remove-btn" data-id="${item.id}">🗑️</button></td>
+                `;
+                cartTable.appendChild(row);
+
+                totalQuantity += item.quantity;
+                totalPrice += item.price * item.quantity;
+            });
+
+            totalPriceEl.textContent = `$${totalPrice.toFixed(2)}`;
+            totalQuantityEl.textContent = totalQuantity;
+        }
+
+        // Handle quantity changes
+        cartTable.addEventListener('click', (e) => {
+            const id = parseInt(e.target.dataset.id);
+            const action = e.target.dataset.action;
+
+            const item = cartItems.find(i => i.id === id);
+
+            if (action === 'increase') {
+                item.quantity++;
+            } else if (action === 'decrease' && item.quantity > 1) {
+                item.quantity--;
+            }
+
+            renderCart();
+        });
+
+        // Remove item from cart
+        cartTable.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-btn')) {
+                const id = parseInt(e.target.dataset.id);
+                const index = cartItems.findIndex(item => item.id === id);
+                cartItems.splice(index, 1);
+                renderCart();
+            }
+        });
+
+        // Clear cart
+        document.querySelector('.clear-cart').addEventListener('click', () => {
+            cartItems.length = 0;
+            renderCart();
+        });
+
+        // Initial render
+        renderCart();
+    </script> -->
+<!-- 
+ <script>
+        {
+         "products"[
+        {
+            "id": 1,
+            "name": "Bed-prime",
+            "price": 50.000,
+            "image": "bed-prime.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Tank-top",
+            "price": 50.000,
+            "image": "tank-top-adam.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Green-shirt",
+            "price": 50.000,
+            "image": "futbolka-endy.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Coat-dog",
+            "price": 50.000,
+            "image": "dosshovik-tina.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Winter clothes",
+            "price": 50.000,
+            "image": "dosshovik-mustang.jpg"
+        }
+    ]
+}
+        const productJson=`{
+        "products"[
+        {
+          "id":1,
+          "name":"Bed-prime",
+          "price": 50.000,
+          "image": "bed-prime.jpg",
+        },
+        {
+            "id":2,
+            "name":"Tank-top",
+            "price": 50.000,
+            "image": "tank-top-adam.jpg",
+        
+        },
+        {
+            "id":3,
+            "name":"Green-shirt",
+            "price": 50.000,
+            "image": "futbolka-endy.jpg",
+        },
+        {
+            "id":4,
+            "name":"coat-dog",
+            "price": 50.000,
+            "image": "dosshovik-tina.jpg",
+        },
+        {
+            "id":5,
+            "name":"Winter clothes",
+            "price": 50.000,
+            "image": "dosshovik-mustang.jpg",
+        }
+    ]
+}`;
+        const cartData=JSON.parse(productJson);
+        // Hiển thị danh sách sản phẩm trong cartData
+        function loadCartItems() {
+            const cartItems = cartData.products;
+            const cartTable = document.getElementById("cart-items");
+            cartTable.innerHTML = "";
+
+            let totalQuantity = 0;
+            let totalPrice = 0;
+
+            cartItems.forEach(item => {
+                totalQuantity += item.quantity;
+                totalPrice += item.quantity * item.price;
+
+                cartTable.innerHTML += `
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td><img src="${item.image}" alt="${item.name}" style="width: 50px;"/></td>
+                        <td>${item.name}</td>
+                        <td>${item.price} $</td>
+                        <td>
+                            <button onclick="decreaseQuantity(${item.id})">-</button>
+                            ${item.quantity}
+                            <button onclick="increaseQuantity(${item.id})">+</button>
+                        </td>
+                        <td>${(item.price * item.quantity).toFixed(2)} $</td>
+                        <td><button onclick="deleteItem(${item.id})">X</button></td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById("total-quantity").textContent = totalQuantity;
+            document.getElementById("total-price").textContent = totalPrice.toFixed(2);
+        }
+       
+        
+    </script>
+
+ -->

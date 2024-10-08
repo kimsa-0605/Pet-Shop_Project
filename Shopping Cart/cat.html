@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 3004px;
+            background-color: #f5f5f5;
+        }
+
+        .cart-container {
+            width: 1440px;
+            height: 3004px;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .cart-table th, .cart-table td {
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .cart-table th {
+            background-color: #ffa500;
+          
+        }
+
+        .cart-summary {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #ffa500;
+            font-size: 24px;
+        }
+
+        .continue-button {
+            width: 100%;
+        }
+
+        .clear-cart {
+            font-size: 24px;
+        }
+
+        .cart-table img {
+            width: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <header>
+            <button class="back-button">&larr;</button>
+            <h2>My cart</h2>
+            <button class="clear-cart"></button><i class="far fa-trash-alt" ></i></button>
+        </header>
+
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Items sẽ được thêm động vào đây -->
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <p>Total product price: <span id="total-price">$0</span></p>
+            <p>Quantity: <span id="total-quantity">0</span></p>
+        </div>
+
+        <button class="continue-button">Continues</button>
+    </div>
+
+    <script>
+        const cartItems = [
+            { id: 1, name: 'Tên sản phẩm', price: 5.99, quantity: 1, img: 'img-url' },
+            { id: 2, name: 'Tên sản phẩm', price: 5.99, quantity: 1, img: 'img-url' },
+            { id: 3, name: 'Tên sản phẩm', price: 5.99, quantity: 1, img: 'img-url' },
+        ];
+
+        const cartTable = document.getElementById('cart-items');
+        const totalPriceEl = document.getElementById('total-price');
+        const totalQuantityEl = document.getElementById('total-quantity');
+
+        // Hiển thị các sản phẩm
+        function renderCart() {
+            cartTable.innerHTML = '';
+            let totalQuantity = 0;
+            let totalPrice = 0;
+
+            cartItems.forEach(item => {
+                const row = document.createElement('tr');
+
+            // Tạo các biến chứa nội dung của từng cột để dễ quản lý
+            const productCell = `<td>
+                                    <img src="${item.img}" alt="product image" width="50px"> 
+                                    ${item.name}
+                                </td>`;
+
+            const priceCell = `<td>$${item.price.toFixed(2)}</td>`;
+
+            const quantityCell = `<td>
+                                    <button class="quantity-btn" data-id="${item.id}" data-action="decrease">-</button>
+                                    ${item.quantity}
+                                    <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
+                                </td>`;
+
+            const totalCell = `<td>$${(item.price * item.quantity).toFixed(2)}</td>`;
+
+            const removeButtonCell = `<td>
+                                        <button class="remove-btn" data-id="${item.id}">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
+                                    </td>`;
+
+            // Kết hợp các cột thành một hàng (row)
+            row.innerHTML = productCell + priceCell + quantityCell + totalCell + removeButtonCell;
+
+                cartTable.appendChild(row);
+
+                totalQuantity += item.quantity;
+                totalPrice += item.price * item.quantity;
+            });
+
+           
+        }
+
+     
+
+
+        // Render lần đầu
+        renderCart();
+    </script>
+</body>
+</html>

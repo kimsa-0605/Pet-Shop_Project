@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .container{
+            max-width: 1200px;
+            margin:auto;
+        }
+        .product-items{
+            display:flex;
+            justify-content:space-around ;
+            background-color: white;
+            padding:12px;
+        }
+        .product-item{
+            width:19%;
+            background-color: white;
+            padding:12px;
+        }
+        .product-item img{
+            width:100%;
+            margin-bottom: 20px;
+        }
+        .product-item-text{
+            display:flex;
+            justify-content: space-between;
+        }
+        .product-item button{
+            margin-top: 12px;
+            height:30px;
+            padding:0 12px;
+            cursor:pointer;
+            border:none;
+            border:5px;
+        }
+        .product-item button:hover{
+            background-color: tomato;;
+        }
+
+        .cart-icon{
+            display: flex;
+            align-items: center; /* Giúp căn giữa icon theo chiều dọc */
+            height: 50px; /* Bạn có thể thay đổi giá trị này */
+            margin-bottom: 20px; /* Tạo khoảng trống bên dưới nếu cần */
+}
+
+
+        /* ====cart==== */
+        /* .cart{
+            width:50%;
+            margin:auto;
+            text-align: center;
+            padding-top: 30px;
+
+        }
+        .cart h2{
+            margin-bottom: 20px;
+        }
+        .cart table{
+            width:100%;
+        }
+        .cart table thead tr th:first-child{
+            text-align: left;
+
+        }
+        .cart table tr td{
+            border-bottom: 1px solid #ddd;
+            padding:12px 0;
+        }
+        .cart table thead tr th:last-child{
+            text-align: right;
+
+        }
+        .cart table tbody tr td:last-child{
+            text-align: right;
+        } */
+    </style>
+</head>
+<body>
+    <div class="products">
+        <div class="container">
+            <div class="cart-icon">
+                <i class='fas fa-cart-arrow-down' style="color: tomato; font-size: 24px;"></i>
+           </div> 
+            <div class="product-items">
+                <div class="product-item">
+                    <img src="./bed-prime (1).jpg" alt="pet-product">
+                    <div class="product-item-text">
+                        <h1 style="font-weight:bold;font-size: 18px;">Bed-prime</h1>
+                        <p><span>320.000$</span></p>
+                    </div>
+                    <button onclick="addToCart(1, 'Bed-prime', 320000)">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="./carrying-bag-vesta.jpg" alt="pet-product">
+                    <div class="product-item-text">
+                        <h1 style="font-weight:bold;font-size: 18px;">Carrying-bag</h1>
+                        <p><span>320.000$</span></p> 
+                    </div>
+                    <button onclick="addToCart(2, 'arrying-bag', 320000)">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="./dosshovik-tina.jpg" alt="pet-product">
+                    <div class="product-item-text">
+                        <h1 style="font-weight:bold;font-size: 18px;">Dosshovik-tina</h1>
+                        <p><span>320.000$</span></p>
+                    </div>
+                    <button onclick="addToCart(3, 'Dosshovik-tina', 320000)">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-item">
+                    <img src="./dosshovik-mustang.jpg" alt="pet-product">
+                    <div class="product-item-text">
+                        <h1 style="font-weight:bold;font-size: 18px;">Dosshovik</h1>
+                        <p><span>320.000$</span></p> 
+                    </div>
+                    <button onclick="addToCart(4, 'Dosshovik', 320000)">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      <!-- JavaScript để xử lý giỏ hàng -->
+      <script>
+        function addToCart(id, name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let product = cart.find(item => item.id === id);
+
+            if (product) {
+                product.quantity += 1; // Tăng số lượng nếu sản phẩm đã có trong giỏ hàng
+            } else {
+                cart.push({ id, name, price, quantity: 1 }); // Thêm sản phẩm mới vào giỏ
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart)); // Lưu vào localStorage
+            alert(`${name} đã được thêm vào giỏ hàng.`);
+        }
+    </script>
+
+   
+    
+</body>
+</html>
+
