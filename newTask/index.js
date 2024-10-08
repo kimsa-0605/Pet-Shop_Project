@@ -82,7 +82,7 @@ loginForm.addEventListener('submit', (event) => {
             alert('Incorrect Password')
             return;
         }
-        window.location.href = '../Header/Header.html';
+        window.location.href = '../HomePage.html'; 
     }else{
         alert('User not found')
     }
