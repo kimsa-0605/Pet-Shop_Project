@@ -46,8 +46,12 @@ registerForm.addEventListener('submit', (event) => {
         password: passwordValue,
     };
 
+    //check ussers already have or not
+    let users = JSON.parse(localStorage.getItem('user')) || [];
+    //Add new user
+    users.push(user)
     // Save user in localStorage
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(users));
 
     // Retrieve the saved user and log it
     const savedUser = JSON.parse(localStorage.getItem('user'));
@@ -60,6 +64,12 @@ registerForm.addEventListener('submit', (event) => {
     document.querySelector('#password-register').value = '';
 });
 
+//Create account for Admin
+const Admin = {
+    email: 'hanhkx12@gmail.com',
+    password: 'hanhkx12#'
+}
+
 // Login form
 const loginForm = document.querySelector('#login-form')
 
@@ -70,9 +80,12 @@ loginForm.addEventListener('submit', (event) => {
     const email = document.querySelector('#email-login').value
     //password
     const password = document.querySelector('#password-login').value
-
-    //Check condition
-    if(user){
+    //Check user is an admin or not
+    if(email == Admin.email && password == Admin.password){
+        window.location.href = './login.html'
+    }
+    //Check for user
+    else if(user){
         const parsedUser = JSON.parse(user)
         if(parsedUser.email != email){
             alert('Email is wrong')
