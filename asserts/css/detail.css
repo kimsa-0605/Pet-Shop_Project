@@ -1,0 +1,150 @@
+.container-detail {
+    background-color: rgba(189, 189, 189, 0.164);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-detail-product {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+#detail-product {
+    background-color: white;
+    width: 1200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.detail-p {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+#detail-product > .detail-p #image {
+    margin-left: 20px;
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+
+}
+p.price {
+    padding: 0px;
+}
+#detail-product p.title-p {
+    font-weight: bold;
+    font-size: 26px;
+}
+p.quantity {
+    margin-top: 15px;
+    font-size: 16px;
+
+}
+
+p.price {
+    font-size: 35px;
+    color: orange;
+    margin-top: 15px;
+}
+
+
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc; 
+    width: 120px; 
+    margin-top: 20px;
+}
+
+.quantity-input {
+    width: 40px; 
+    text-align: center; 
+    border: none; 
+    outline: none;
+    font-size: 16px; 
+}
+
+button {
+    background-color: #f0f0f0; 
+    color: #333;
+    border: none; 
+    padding: 10px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    width: 30px; 
+}
+.decrease-btn {
+    background-color: white;
+    border-right: 1px solid #ccc;
+}
+.increase-btn {
+    background-color: white;
+    border-left: 1px solid #ccc;
+}
+
+#quantity-display {
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-detail {
+    margin-top: 15px;
+    padding: 0px;
+    margin-top: 20px;
+}
+.cart, .buy {
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: orange;
+    border: orange;
+}
+
+.cart {
+    background-color: rgba(255, 166, 0, 0.511);
+    border: 1px solid orange;
+}
+
+.share {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.share i{
+    font-size: 30px;
+}
+
+.share  p{
+    font-size: 16px;
+}
+
+
+.produc-infor {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding-bottom: 40px;
+}
+
+.title-infor {
+    color: orange;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.p-infor {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.produc-infor .title-infor {
+    font-weight: bold;
+    font-size: 20px;
+}

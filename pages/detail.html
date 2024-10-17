@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <!-- FUENTE GOOGLE FONTS : Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/asserts/css/homePage.css">
+    <link rel="stylesheet" href="/asserts/css/detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- ICONS: Line Awesome -->
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <!-- Animaciones AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">  
+</head>
+<body onload="displayProductDetail()">
+    <div class="container-detail">
+        <!-- Start header -->
+        <div class="app">
+            <div class="hero">
+                <div class="head_1">
+                    <div class="header_1-left">
+                        <div class="header_1-left-telephone header_content">
+                            <i class="fa-solid fa-phone"></i>
+                            <p>+379 871-8371</p>
+                        </div>
+                        <div class="header_1-left-email header_content">
+                            <i class="fa-regular fa-envelope"></i>
+                            <p>rgarton@outlook.com</p>
+                        </div>
+                    </div>
+                    <div class="header_1-right">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>8592 Fairground St. Tallahassee, FL 32303</p>
+                    </div>
+                </div>
+                <div class="head_2">
+                    <div class="shop-logo">
+                        <i class="fa-solid fa-paw"></i>
+                        <p>Pet Shop</p>
+                    </div>
+                    <div class="menu">
+                        <ul class="list-menu">
+                            <li>Home</li>
+                            <li>Fashion</li>
+                            <li>Food</li>
+                            <li>About Us</li>
+                        </ul>
+                    </div>
+                    <div class="input-head">
+                        <div class="input-head_search">
+                            <input type="text" placeholder="Search Products...">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <i class="fa-regular fa-user"></i>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+                <div class="hero_content">
+                    <div class="hero_content-left">
+                        <h5>Pet Shop</h5>
+                        <h2>The friendly and 
+                            caring small pet store
+                        </h2>
+                        <p>At et vehicula sodales est proin turpis pellentesque sinulla a aliquam amet rhoncus quisque eget sit</p>
+                    </div>
+                    <div class="hero_content-right">
+                        <img src="/asserts/image/dogHomepage.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End header -->
+
+        <!-- Start Detailt-product -->
+
+         <div id="detail-product"></div>
+         <script src="/asserts/javaScript/homePage.js"></script>
+         <script  src="/asserts/javaScript/detail.js"></script>
+         <!-- End Detailt-product -->
+
+        
+         <!-- Start footer -->
+         <div class="footer">
+            <img class="dauchan" src="/asserts/image/dauchan.png" alt="">
+            <img class="tron" src="/asserts/image/nuatronfooter.png" alt="">
+            <div class="inforU">
+                <div class="infor">
+                    <div class="subInfor">
+                        <img src="/asserts/image/Logo.png" class="logo">
+                        <p class="text">Sed viverra eget fames sit varius. <br>
+                            Pellentesque mattis libero viverra dictumst <br> 
+                            ornaresed justo convallis vitae
+                        </p>
+                    </div>
+                    <div class="icon-contact">
+                        <i class="icon fa-brands fa-square-facebook" ></i>
+                        <i class="icon fa-brands fa-square-instagram"></i>
+                        <i class="icon fa-brands fa-square-x-twitter"></i>
+                        <i class="icon fa-brands fa-square-youtube"></i>
+                    </div>
+                </div>
+                <ul class="title"><b>Company</b>
+                    <li class="text">About Us</li>
+                    <li class="text">Blog</li>
+                    <li class="text">Gift</li>
+                    <li class="text">Careers</li>
+                </ul>
+                <ul class="title"><b>Useful Links</b>
+                    <li class="text">New products</li>
+                    <li class="text">Best sellers</li>
+                    <li class="text">Discount</li>
+                    <li class="text">F.A.Q</li>
+                </ul>
+                <ul class="title"><b>Customer Service</b>
+                    <li class="text">Contact Us</li>
+                    <li class="text">Shipping</li>
+                    <li class="text">Returns</li>
+                    <li class="text">Order tracking</li>
+                </ul>
+                <div class="store"><b>Store</b>
+                    <p class="br">8592 Fairground St.</p>
+                    <p>Tallahassee, FL 32303</p>
+                    <p class="br">+775 378-6348</p>
+                    <p>rgarton@outlook.com</p>
+                </div>
+            </div>
+            <div class="inforD">
+                <p class="text-inforD"> © Copyright Pet Shop  2024. Design by Figma. guru</p>
+                <div class="icon-pay">
+                    <i class="icon fa-brands fa-cc-visa"></i>
+                    <i class="icon fa-brands fa-cc-mastercard"></i>
+                    <i class="icon fa-brands fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+        <!-- End footer -->
+    </div>
+
+    
+</body>
+</html>
