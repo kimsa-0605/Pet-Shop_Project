@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web_Basic</title>
+    <title>Chi tiết sản phẩm</title>
     <!-- FUENTE GOOGLE FONTS : Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./Hompage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/asserts/css/homePage.css">
+    <link rel="stylesheet" href="/asserts/css/detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <!-- ICONS: Line Awesome -->
-    <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="/asserts/css/About.css">
-    <!-- Animaciones AOS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-</head>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
-<body onload="listProducts()">
-    <div class="container">
-        <!-- Start Header -->
+    <!-- Animaciones AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">  
+</head>
+<body onload="displayProductDetail()">
+    <div class="container-detail">
+        <!-- Start header -->
         <div class="app">
             <div class="hero">
                 <div class="head_1">
@@ -58,8 +55,8 @@
                             <input type="text" placeholder="Search Products...">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-                        <i class="fa-regular fa-user" onclick="dieu_huong('User')"></i>
-                        <i class="fa-solid fa-cart-shopping" onclick="dieu_huong('Cart')"></i>
+                        <i class="fa-regular fa-user"></i>
+                        <i class="fa-solid fa-cart-shopping"></i>
                     </div>
                 </div>
                 <div class="hero_content">
@@ -71,79 +68,23 @@
                         <p>At et vehicula sodales est proin turpis pellentesque sinulla a aliquam amet rhoncus quisque eget sit</p>
                     </div>
                     <div class="hero_content-right">
-                        <img src="/asserts//image/dogHomepage.png" alt="">
+                        <img src="/asserts/image/dogHomepage.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
         <!-- End header -->
-        <!--------------------------------START-MEMBER---------------------------------------->
-        <div class="overlay" ></div>
-        <div class="member">
-            <h1>Our Team</h1>
-                <div class="teamMember">
-                    <div id="teamMemberContainer"></div>
-                </div>
-            </div>
-            <!-- Modal để hiển thị thông tin thành viên -->
-            <div class="member-info" id="member-info">
-                <div class="content">
-                    <img src="" alt="" id="img-member">
-                    <div class="details">
-                        <p Name: id="member-name"></p>
-                        <p id="member-role"></p> 
-                        <p id="date-member"></p>
-                        <p id="member-description"></p>
-                    </div>
-                </div>
-                <!-- <button onclick="closeInfo()">Close</button> -->
-                <i class="fa-solid fa-x " onclick="closeInfo()"></i>
-            </div>
 
-        <!--------------------------------END-MEMBER---------------------------------------->
-        <!---------------START-SLIDE-ABOUT-US---------------------------------->
-        <div class="slide_about_us">
-            <div class="left_slide_about_us">
-                <p class="tilte1">Testimonials</p>
-                <p class="title2" style="font-size: 40px;"><b>What people say about us</b></p>
-                <div class="slide_about_us_info">
-                    <div class="icon_about_us">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <div class="info_about_us" id="text"></div>
-                    <div class="last_about_us">
-                        <div class="info_about_us">
-                            <p id="name"></p>
-                            <p id="role"></p>
-                        </div>
-                        <div class="icon_last_about_us">
-                            <i class="fa-solid fa-chevron-left" id="left"></i>
-                            <i class="fa-solid fa-chevron-right" id="right"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="right_slide_about_us">
-                    <div class="img-background">
-                        <img src="/asserts/image/backgroundAbout_Us.png" alt="" class="img-big"> <!----tao mot khung bao quanh buc anh--->
-                        <img src="" alt="" id="img"> <!----------anh nam trong khung do---------->
-                </div>
-            </div>
-        </div>
-        <!---------------END-SLIDE-ABOUT-US---------------------------------->
-        <!------------------------------START-VIDEO----------------------------->
-        <div class="video_team">
-            <video controls=""
-                <source src="/asserts/image/videonhom_About_Us.mp4">
-            </video>
-        </div>
-        <!------------------------------END-VIDEO----------------------------->
-        <!-----------------------------Start footer ------------------------------------------->
-        <div class="footer">
+        <!-- Start Detailt-product -->
+
+         <div id="detail-product"></div>
+         <script src="/asserts/javaScript/homePage.js"></script>
+         <script  src="/asserts/javaScript/detail.js"></script>
+         <!-- End Detailt-product -->
+
+        
+         <!-- Start footer -->
+         <div class="footer">
             <img class="dauchan" src="/asserts/image/dauchan.png" alt="">
             <img class="tron" src="/asserts/image/nuatronfooter.png" alt="">
             <div class="inforU">
@@ -156,7 +97,7 @@
                         </p>
                     </div>
                     <div class="icon-contact">
-                        <i class="icon fa-brands fa-square-facebook"></i>
+                        <i class="icon fa-brands fa-square-facebook" ></i>
                         <i class="icon fa-brands fa-square-instagram"></i>
                         <i class="icon fa-brands fa-square-x-twitter"></i>
                         <i class="icon fa-brands fa-square-youtube"></i>
@@ -188,7 +129,7 @@
                 </div>
             </div>
             <div class="inforD">
-                <p class="text-inforD"> © Copyright Pet Shop 2024. Design by Figma. guru</p>
+                <p class="text-inforD"> © Copyright Pet Shop  2024. Design by Figma. guru</p>
                 <div class="icon-pay">
                     <i class="icon fa-brands fa-cc-visa"></i>
                     <i class="icon fa-brands fa-cc-mastercard"></i>
@@ -196,11 +137,9 @@
                 </div>
             </div>
         </div>
-        <!----------------------------End footer------------------------------------>
-
+        <!-- End footer -->
     </div>
-    <script src="/asserts/javaScript/About.js">
-    </script>
-</body>
 
+    
+</body>
 </html>

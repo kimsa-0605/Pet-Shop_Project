@@ -28,7 +28,7 @@ body {
     display: flex;
     justify-content: center;
     width: 1440px;
-    background-image: url('./img/Hero\ \(1\).png'); /* Đảm bảo đường dẫn đúng */
+    background-image: url('/asserts/image/backgroudHeader.png'); /* Đảm bảo đường dẫn đúng */
 }
 
 .hero {
@@ -307,14 +307,20 @@ i {
 }
 .member-info .fa-solid {
     position: absolute;
-    top: 5px;  /* Căn chỉnh nút ở trên */
-    right: 10px; /* Căn chỉnh nút ở góc phải */
-    padding: 10px 20px;
+    top: 0px; 
+    right: 0px; 
+    width: 40px;
+    height: 40px;
     background-color: #F87537;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    border-top-right-radius: 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .member-info .fa-solid:hover {
@@ -342,19 +348,20 @@ i {
 }
 
 .teamMember .eye-icon {
-    width: 60px;
+    width: 50px;
     height: 30px;
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 30px;
+    font-size: 15px;
     background-color: rgba(230, 93, 25, 0.685);
     display: none;
     cursor: pointer;
     z-index: 2;
     border-radius: 10px;
     text-align: center;
+
 }
 
 .info-member:hover img {
@@ -365,6 +372,10 @@ i {
 .info-member:hover .eye-icon {
     display: block;
     color: rgb(148, 60, 60);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
 .eye-icon:hover{
@@ -386,6 +397,7 @@ i {
             background: rgba(0, 0, 0, 0.7);
             display: none;
             z-index: 10;
+            border: 1px solid #f874378c;
         }
 
         .member-info {
@@ -401,6 +413,7 @@ i {
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             background-color: #f9f9f9;
+            border:2px solid #f874378c;
         }
 
         /* Chia bảng thông tin thành 2 cột với kích thước 336px x 336px */

@@ -95,37 +95,37 @@ const DetailMember = [
         text: ' In my free time, I enjoy reading books about technology, participating in online courses, and experimenting with new ideas in programming. Additionally, I am also a sports enthusiast and regularly engage in physical activities such as running and yoga to stay healthy.',
         name: 'Hồ Thị Kim Thanh',
         role: 'Member',
-        image: './/img/AnhThanh2.jpg' 
+        image: '/asserts/image/AnhThanh2_About_Us.jpg' 
     },
     {
         text: 'As someone passionate about learning and exploring new things in life, I constantly strive to develop myself through participating in group projects and extracurricular activities. Besides studying, I enjoy reading and traveling, which helps broaden my perspective and understanding of the world around me.',
         name: 'Hồ Thị Duyên Hà',
         role: 'Member',
-        image: './/img/AnhHa1.jpg' 
+        image: '/asserts/image/AnhHa1.jpg' 
     },
     {
         text: 'I am passionate about communication and connecting with people, and I believe that listening and understanding are key to building strong relationships. Outside of work, I enjoy participating in volunteer and community activities. I believe that everyone can make a difference, no matter how small.',
         name: 'Hồ Thị Diệu',
         role: 'Member',
-        image: './/img/AnhDieu2.jpg' 
+        image: '/asserts/image/AnhDieu2.jpg' 
     },
     {
         text: 'Currently serving as a leader in a creative team, with passion and enthusiasm for my work, I always strive to inspire and support my team members. Outside of work, I enjoy participating in sports and volunteering, which helps me maintain balance in life. ',
         name: 'Hồ Ly Kim Sa',
         role: 'Leader',
-        image: './/img/AnhSa1.jpg' 
+        image: '/asserts/image/AnhSa2.jpg' 
     },
     {
         text: 'I always strive to bring satisfaction to every customer I meet. I believe that good service is not only about providing quality products but also about creating great experiences for customers. Outside of work, I enjoy participating in community activities and exploring new things in life.',
         name: 'Hồ Văn Hanh',
         role: 'Member',
-        image: './/img/AnhHanh2.jpg' 
+        image: '/asserts/image/AnhHanh2.jpg' 
     },
     {
         text: 'With a high level of enthusiasm, I am always seeking opportunities to learn and develop myself. In my work, I focus on accuracy and efficiency, striving to work and support my colleagues to achieve common goals. Outside of work, I enjoy exploring nature and discovering new things in life.',
         name: 'Bhờ Nướch Thị Hoài Tiên',
         role: 'Member',        
-        image: './/img/AnhTien2.jpg' // Đường dẫn hình ảnh
+        image: '/asserts/image/AnhTien2_About_Us.jpg' // Đường dẫn hình ảnh
     }
 ];
 
