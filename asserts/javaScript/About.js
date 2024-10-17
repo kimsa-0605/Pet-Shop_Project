@@ -4,42 +4,42 @@ const teamMembers = [
         role: "Member",
         date: "18-01-2005",
         description: "Enjoys watching movies and reading books. She often seeks out good films and interesting books to relax after long hours of studying and working.",
-        image: ".//img/AnhThanh1.jpg",
+        image: "/asserts/image/AnhThanh1_About_Us.jpg",
     },
     {
         name: "Hồ Thị Duyên Hà",
         role: "Member",
         date: "15-08-2005",
         description: "Loves exploring new design trends and enjoys sketching her ideas. In her free time, she also likes to travel and discover new cultures, which inspires her creative work.",
-        image: ".//img/AnhHa2.jpg"
+        image: "/asserts/image/AnhHa2.jpg"
     },
     {
         name: "Hồ Thị Diệu",
         role: "Member",
         date: "10-06-2005",
         description: "She enjoys understanding consumer behavior and creating impactful digital marketing campaigns. In her free time, she likes reading marketing books to enhance her skills.",
-        image: ".//img/AnhDieu1.jpg"
+        image: "/asserts/image/AnhDieu1.jpg"
     },
     {
         name: "Hồ Ly Kim Sa",
         role: "Leader",
         date: "06-05-2005",
         description: "She has the ability to develop effective marketing strategies and drive her team towards common goals. She is also passionate about sharing knowledge and supporting team members in developing their skills.",
-        image: ".//img/AnhSa1.jpg"
+        image: "/asserts/image/AnhSa1.jpg"
     },
     {
         name: "Hồ Văn Hanh",
         role: "Member",
         date: "20-12-2005",
         description: "He is skilled at building relationships with clients and understanding their needs. His dedication to providing excellent service makes him a valuable asset to the team. Hanh is always eager to learn and adapt to new challenges, contributing positively to the group's success.",
-        image: ".//img/AnhHanh1.jpg"
+        image: "/asserts/image/AnhHanh1.jpg"
     },
     {
         name: "Bhờ Nướch Thị Hoài Tiên",
         role: "Member",
         date: "27-03-2005",
         description: "Enjoys reading books and participating in volunteer activities. She often spends her free time exploring new marketing strategies and connecting with customers through community events.",
-        image: ".//img/AnhTien1.jpg"
+        image: "/asserts/image/AnhTien1_ABout_Us.jpg"
     }
 ];
 

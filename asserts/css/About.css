@@ -22,7 +22,7 @@ body {
     font-family: 'Poppins', sans-serif; /* Đảm bảo font được sử dụng chính xác */
 }
 .red{
-    color: red;
+    color: #F87537;
 }
 .app {
     display: flex;
@@ -231,7 +231,6 @@ i {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* border: 1px solid red; */
 }
 .container-member {
     width: 336px; 
@@ -251,8 +250,6 @@ i {
     object-fit: cover;
 }
 #teamMemberContainer {
-    /* display: flex;
-    flex-wrap: wrap; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -313,7 +310,7 @@ i {
     top: 5px;  /* Căn chỉnh nút ở trên */
     right: 10px; /* Căn chỉnh nút ở góc phải */
     padding: 10px 20px;
-    background-color: #f44336;
+    background-color: #F87537;
     color: white;
     border: none;
     border-radius: 5px;
@@ -321,7 +318,7 @@ i {
 }
 
 .member-info .fa-solid:hover {
-    background-color: #d32f2f;
+    background-color: #F87537;
 }
 .teamMember {
     display: flex;
