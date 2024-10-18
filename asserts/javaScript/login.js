@@ -32,15 +32,30 @@ const registerForm = document.querySelector('#register-form')
 
 registerForm.addEventListener('submit', (event) => {
     event.preventDefault();
-
+    // Lấy danh sách người dùng từ localStorage
+    const userLocal = JSON.parse(localStorage.getItem('user')) || [];
     //name
     const nameValue = document.querySelector('#name-register').value;
     //email
     const emailValue = document.querySelector('#email-register').value;
+    //exists
+    const exits = userLocal.find(user => user.email === emailValue);
+    if(exits){
+        alert('User already have an account! Please Log in');
+        return;
+    }
     //password
     const passwordValue = document.querySelector('#password-register').value;
+    if(passwordValue.length<8){
+        alert('Please enter a strong password(at least 8 characters)')
+        return;
+    }
+
+    //Create userID
+    const userId = `user-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
 
     const user = {
+        id: userId,
         name: nameValue,
         email: emailValue,
         password: passwordValue,
@@ -70,36 +85,45 @@ const Admin = {
     password: 'hanhkx12#'
 }
 
-// Login form
-const loginForm = document.querySelector('#login-form')
+// Login form   
+const loginForm = document.querySelector('#login-form');
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const user = localStorage.getItem('user')
-    //email
-    const email = document.querySelector('#email-login').value
-    //password
-    const password = document.querySelector('#password-login').value
-    //Check user is an admin or not
-    if(email == Admin.email && password == Admin.password){
-        window.location.href = './login.html'
+
+    // Lấy danh sách người dùng từ localStorage
+    const users = JSON.parse(localStorage.getItem('user')) || [];
+
+    // Lấy email và password từ form đăng nhập
+    const email = document.querySelector('#email-login').value;
+    const password = document.querySelector('#password-login').value;
+
+    // Kiểm tra người dùng có phải admin không
+    if (email === Admin.email && password === Admin.password) {
+        window.location.href = './login.html';
+        return;
     }
-    //Check for user
-    else if(user){
-        const parsedUser = JSON.parse(user)
-        if(parsedUser.email != email){
-            alert('Email is wrong')
-            return;
-        }
-        if(parsedUser.password != password){
-            alert('Incorrect Password')
-            return;
-        }
-        window.location.href = '../Header/Header.html';
-    }else{
-        alert('User not found')
+
+    // Tìm kiếm người dùng trong danh sách
+    const foundUser = users.find(user => user.email === email);
+
+    if (!foundUser) {
+        alert('User not found');
+        return;
     }
-} )
+
+    if (foundUser.password !== password) {
+        alert('Incorrect Password');
+        return;
+    }
+
+    document.querySelector('#email-register').value = '';
+    document.querySelector('#password-register').value = '';
+
+    // Đăng nhập thành công
+    alert('Login successfully!');
+    window.location.href = '../Header/Header.html';
+});
 
 //Password convinience
 
