@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./Hompage.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/Pet-Shop_Project/asserts/css/Admin.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Start Header -->
+        <header class="head">
+            <div class="logo-pet">
+                <img src="/Pet-Shop_Project/asserts/image/Logo.png" alt="Logo">
+            </div>
+            <nav class="center-_head">
+                <p>Trang Chủ</p>
+                <p>Thời Trang</p>
+                <p>Đồ ăn</p>
+            </nav>
+            <div class="last_head">
+                <div class="search-container">
+                    <input type="text" placeholder="Search products..." class="search-input">
+                    <button class="search-button"><i class="fa fa-search"></i></button>
+                </div>
+                <div class="nav-icons">
+                    <a href="#"><i class="fa fa-user"></i></a>
+                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Start Content -->
+        <main class="content">
+            <aside class="left_content">
+                <div class="contain_side">
+                    <div class="side_bar">
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon" id="main_menu">
+                                <i class="fa-solid fa-file-lines"></i>
+                                Manage products
+                                <ul class="ul_menu">
+                                    <li class="detail-li">
+                                        <a href="#" onclick="setCategory('food')">Food</a>
+                                    </li>
+                                    <li class="detail-li">
+                                        <a href="#" onclick="setCategory('fashion')">Fashion</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="side_bar">
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon">
+                                <i class="fa-solid fa-file-lines"></i>
+                                Manage User
+                            </div>
+                        </a>
+                    </div>
+                    <div class="side_bar">
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon">
+                                <i class="fa-solid fa-file-lines"></i>
+                                Manage Order
+                            </div>
+                        </a>
+                    </div>
+                    <div class="side_bar">
+                        <a class="nav-link" href="#">
+                            <div class="sb-nav-link-icon">
+                                <i class="fa-solid fa-gear"></i>
+                                Setting
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="right_content">
+                <h1 id="categoryTitle">Manage Food Products</h1>
+                <button class="btn btn-primary" id="createButton" onclick="showAddProductForm()">
+                    Create
+                    <i class="fas fa-plus mr-2"></i>
+                </button>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Img</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="tbody"></tbody>
+                </table>
+            </section>
+        </main>
+        <!-- End Content -->
+
+        <!-- Start Footer -->
+        <footer class="footer">
+            <img class="dauchan" src="/Pet-Shop_Project/asserts/image/dauchan.png" alt="">
+            <img class="tron" src="/Pet-Shop_Project/asserts/image/nuatronfooter.png" alt="">
+            <div class="inforU">
+                <div class="infor">
+                    <div class="subInfor">
+                        <img src="/Pet-Shop_Project/asserts/image/Logo.png" class="logo" alt="Logo">
+                        <p class="text">Sed viverra eget fames sit varius. <br>
+                            Pellentesque mattis libero viverra dictumst <br>
+                            ornaresed justo convallis vitae
+                        </p>
+                    </div>
+                    <div class="icon-contact">
+                        <i class="icon fa-brands fa-square-facebook"></i>
+                        <i class="icon fa-brands fa-square-instagram"></i>
+                        <i class="icon fa-brands fa-square-x-twitter"></i>
+                        <i class="icon fa-brands fa-square-youtube"></i>
+                    </div>
+                </div>
+                <ul class="title"><b>Company</b>
+                    <li class="text">About Us</li>
+                    <li class="text">Blog</li>
+                    <li class="text">Gift</li>
+                    <li class="text">Careers</li>
+                </ul>
+                <ul class="title"><b>Useful Links</b>
+                    <li class="text">New products</li>
+                    <li class="text">Best sellers</li>
+                    <li class="text">Discount</li>
+                    <li class="text">F.A.Q</li>
+                </ul>
+                <ul class="title"><b>Customer Service</b>
+                    <li class="text">Contact Us</li>
+                    <li class="text">Shipping</li>
+                    <li class="text">Returns</li>
+                    <li class="text">Order tracking</li>
+                </ul>
+                <div class="store"><b>Store</b>
+                    <p class="br">8592 Fairground St.</p>
+                    <p>Tallahassee, FL 32303</p>
+                    <p class="br">+775 378-6348</p>
+                    <p>rgarton@outlook.com</p>
+                </div>
+            </div>
+            <div class="inforD">
+                <p class="text-inforD"> © Copyright Pet Shop 2024. Design by Figma. guru</p>
+                <div class="icon-pay">
+                    <i class="icon fa-brands fa-cc-visa"></i>
+                    <i class="icon fa-brands fa-cc-mastercard"></i>
+                    <i class="icon fa-brands fa-cc-paypal"></i>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+    </div>
+
+    <!-- them san phẩm -->
+    <div class="addProducts" style="display: none;">
+        <h2>Add Products</h2>
+        <div class="icon-x">
+            <i class="fa-solid fa-xmark" onclick="closeAddProductForm()"></i>
+        </div>
+        <input type="text" id="PName" placeholder="Product Name">
+        <input type="file" id="PImage">
+        <input type="number" id="pPrice" placeholder="Product Price" min="1">
+        <button id="addProductBtn" onclick="addProduct()">Add Product</button>
+        <button id="cancelBtn" onclick="closeAddProductForm()">Cancel</button>
+    </div>
+
+    <!-- cập nhập lại san phẩm -->
+    <div class="upload-products" style="display: none;">
+        <h4>Update Product</h4>
+        <div class="icon-x">
+            <i class="fa-solid fa-xmark" onclick="closeUpdateProductForm()"></i>
+        </div>
+        <input type="text" placeholder="Name..." id="name">
+        <input type="file" id="updateImage" placeholder="Upload new Image">
+        <input type="number" placeholder="Price..." id="price" min="1">
+        <button onclick="updateProduct()">Update</button>
+        <button onclick="closeUpdateProductForm()">Close</button>
+    </div>
+<script src="/Pet-Shop_Project/asserts/javaScript/Admin.js"></script>
+    
+</body>
+
+</html>
