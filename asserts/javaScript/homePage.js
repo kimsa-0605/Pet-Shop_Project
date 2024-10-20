@@ -161,7 +161,7 @@ function dieu_huong(page) {
     } else if (page === 'Home') {
         location.assign("/pages/homePage.html");
     }else if (page === 'Cart') {
-        location.assign("/Cart/gio.html");
+        location.assign("/pages/cartt.html");
     } else if (page === 'User') {
         location.assign("/pages/profile.html");
     }
@@ -312,6 +312,7 @@ const bestSelling = JSON.parse(localStorage.getItem('best_selling')) || [];
 products = feturedProducts.concat(bestSelling);
 
 // Thêm sản phẩm vào giỏ hàng 
+const getUserID = localStorage.getItem("userID");
 function addToCartHomePage(id) {
     console.log(id);
     let checkProductInCart = userData.some(value => value.id === id);
@@ -321,7 +322,8 @@ function addToCartHomePage(id) {
         console.log(pInProduct);
         userData.unshift ({
             ...pInProduct,
-            quantityBuy: 1
+            quantityBuy: 1,
+            userID: getUserID
         })
         localStorage.setItem("productInCart", JSON.stringify(userData));
     }else {
@@ -329,7 +331,8 @@ function addToCartHomePage(id) {
         let pInProduct = userData.find(value => value.id === id)
         userData[getIndex] = {
             ...pInProduct,
-            quantityBuy: ++pInProduct.quantityBuy
+            quantityBuy: ++pInProduct.quantityBuy,
+            userID: getUserID
         }
         localStorage.setItem("productInCart", JSON.stringify(userData));
     }
@@ -366,8 +369,8 @@ document.getElementById("product-cart").addEventListener('click', function(event
 // Lưu vào local storage sản phẩm muốn mua và chuyển sang trang order khi nhấn nút order
 function Order() {
     if (userData.length > 0) {
-        localStorage.setItem('order', JSON.stringify(userData));
-        window.location.href = "/Cart/gio.html";
+        localStorage.setItem('orderDetails', JSON.stringify(userData));
+        window.location.href = "/pages/Order.html";
     } else {
         alert("Giỏ hàng của bạn trống!");
     }

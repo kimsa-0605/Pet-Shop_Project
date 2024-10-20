@@ -61,7 +61,7 @@ if (getDataUser) {
                 <div class="a-image-content">
                     <img src="${getDataUser.image || '/asserts/image/avatar.jpg'}" alt="User Avatar">
                 </div>
-                <p><b>${getDataUser.fullName}</b></p>
+                <p class="name-User-profile"><b>${getDataUser.fullName}</b></p>
             </div>
         `;
     }    
@@ -256,3 +256,7 @@ function dieu_huong(page) {
     }
 }
 
+function logOut() {
+    localStorage.removeItem('userID');
+    window.location.href = "/pages/login.html";
+}

@@ -86,6 +86,8 @@ function minusQuantityDetail() {
 }
 
 // ---------------------------THÊM VÀO GIỎ HÀNG-----------------------
+
+const userID = localStorage.getItem("userID");
 let getDataInCart = (key) => {
     const data  = localStorage.getItem(key);
     return data ? JSON.parse(data) : [];
@@ -108,7 +110,8 @@ function addToCart(id) {
         console.log(pInProduct);
         userDataInCart.unshift ({
             ...pInProduct,
-            quantityBuy: currentQuantity
+            quantityBuy: currentQuantity,
+            userID: userID
         })
         localStorage.setItem("productInCart", JSON.stringify(userDataInCart));
     }else {
@@ -116,7 +119,8 @@ function addToCart(id) {
         let pInProduct = userDataInCart.find(value => value.id === id)
         userDataInCart[getIndex] = {
             ...pInProduct,
-            quantityBuy: ++pInProduct.quantityBuy
+            quantityBuy: ++pInProduct.quantityBuy,
+            userID: userID
         }
         localStorage.setItem("productInCart", JSON.stringify(userDataInCart));
     }
@@ -140,11 +144,13 @@ document.addEventListener('DOMContentLoaded', displayProductDetail);
 // --------------------------BUY NOW------------------------------------------
 function buyNow(productId) {
     const product = products.find(p => p.id === productId);
-    
     if (product) {
-        localStorage.setItem('order', JSON.stringify(product));
-
-        window.location.href = "/Cart/gio.html";
+        const orderDetails = {
+            ...product,
+            userID: userID
+        };
+        localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
+        window.location.href = "/pages/cartt.html";
     } else {
         console.error('The product does not exist.');
     }

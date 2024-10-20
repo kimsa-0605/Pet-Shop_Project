@@ -263,11 +263,18 @@
     justify-content: center;
 }
 
+.a-image-content {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.301);
+}
 .a-image-content, .a-image-content img{
     width: 168px;
     height: 168px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.name-User-profile {
+    margin-top: 10px;
 }
 
 .change-image {
