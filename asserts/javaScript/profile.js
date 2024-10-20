@@ -12,6 +12,7 @@ const getDataUser = user.find(u => u.id === userDataUser);
 console.log(getDataUser);
 
 // Start Hiển thị profile
+const avatarInfor = document.getElementById("avatar-infor");
 const profileContainer = document.getElementById("content-profile");
 const viewProfileItem = document.getElementById("viewProfileItem");
 const updateProfileItem = document.getElementById("updateProfileItem");
@@ -63,8 +64,7 @@ if (getDataUser) {
                 <p><b>${getDataUser.fullName}</b></p>
             </div>
         `;
-    }
-    
+    }    
 
 
 
@@ -142,7 +142,9 @@ if (getDataUser) {
             getDataUser.phoneNumber = updatedUser.phoneNumber;
             getDataUser.gender = updatedUser.gender;
             getDataUser.birth = updatedUser.birth;
-            getDataUser.image = updatedUser.image; 
+            getDataUser.image = updatedUser.image;
+            
+            displayAvatarInfor();
             displayViewProfile();
             alert('Profile information updated successfully.');
         }
@@ -173,6 +175,18 @@ if (getDataUser) {
         
         
     }
+    function displayAvatarInfor() {
+        avatarInfor.innerHTML = `
+            <div class="image-avatar">
+                <img src="${getDataUser.image || '/asserts/image/avatar.jpg'}" alt="User Avatar">
+            </div>
+            <div class="a-infor">
+                <p class="p-username">${getDataUser.name || 'Information not updated yet'}</p>
+                <p id="updateInfor"><span class="fa-solid fa-pencil"></span> Update profile</p>
+            </div>
+        `;
+    }
+    displayAvatarInfor();
 }
 
 
@@ -183,22 +197,23 @@ viewProfileItem.addEventListener("click", () => {
     displayViewProfile();
 });
 
-updateProfileItem.addEventListener("click", () => {
+// Hàm hiển thị ra bảng cập nhật
+function renderUpdate(){
     updateProfileItem.classList.add("p-view");
     viewProfileItem.classList.remove("p-view");
     displayUpdateProfile();
-});
+    console.log("update was clicked!");
+}
 
-updateInfor.addEventListener("click", () => {
-    updateProfileItem.classList.add("p-view");
-    viewProfileItem.classList.remove("p-view");
-    displayUpdateProfile();
-});
-
+updateProfileItem.addEventListener("click", renderUpdate);
+let update = document.getElementById('updateInfor');
+console.log("This is update", update);
+update.addEventListener("click", renderUpdate);
 window.onload = function() {
     viewProfileItem.classList.add("p-view");
     updateProfileItem.classList.remove("p-view");
     displayViewProfile();
+    displayAvatarInfor();
 };
 // End hiển thị profile
 
@@ -206,12 +221,12 @@ window.onload = function() {
 // Satrt Modal logout
 var modal = document.getElementById("logout-modal");
 var btn = document.getElementById("logout");
-var span = document.getElementsByClassName("close-logout")[0];
+var closeLogout = document.getElementsByClassName("close-logout")[0];
 
 btn.onclick = function() {
   modal.style.display = "block";
 }
-span.onclick = function() {
+closeLogout.onclick = function() {
   modal.style.display = "none";
 }
 window.onclick = function(event) {
