@@ -1,0 +1,110 @@
+<!-- order.html -->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop - Checkout</title>
+    <link rel="stylesheet" href="../asserts/css/Order.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- <h1 class="h1"> Pet Shop</h1> -->
+        <div class="shop-logo">
+            <i class="fa-solid fa-paw"></i>
+            <h1>Pet Shop</h1>
+        </div>
+        <div class="checkout">
+            <!-- Thông tin mua hàng -->
+            <div class="form-section">
+                
+                <form id="info">
+                    <h2>Purchase information </h2>
+                    
+                    <!-- <label for="email">Email</label> -->
+                    <input type="email" id="email" placeholder="Email"> <br>
+
+                    <input type="text" id="name" placeholder="Full name"> <br>
+
+                    <input type="tel" id="phone" placeholder="Phone number"> <br>
+
+                    <input type="text" id="address" placeholder="Address"> <br>
+
+                    <input list="province-list" id="province" placeholder="Select or enter province/city">
+
+                    <datalist id="province-list">
+                        <option value="Bình Định">
+                        <option value="Cao Bằng">
+                        <option value="Đà Nẵng">
+                        <option value="Đắk Lắk">
+                        <option value="Gia Lai">
+                        <option value="Hà Tĩnh">
+                        <option value="Kon Tum">
+                        <option value="Nghệ An">
+                        <option value="Quảng Bình">
+                        <option value="Quảng Nam">
+                        <option value="Quảng Ngãi">
+                        <option value="Quảng Trị">
+                        <option value="Thừa Thiên Huế">
+                        <option value="TP. Hồ Chí Minh">
+                    </datalist>  <br>
+
+                    <!-- Quận Huyện -->
+                    <input list="district-list" id="district" placeholder="Select or enter district">
+                    <datalist id="district-list">
+                        <!-- Danh sách các quận/huyện sẽ được cập nhật tự động dựa trên tỉnh thành -->
+                    </datalist> <br>
+
+                    <!-- Phường Xã -->
+                    <input list="ward-list" id="ward" placeholder="Select or enter ward/commune">
+                    <datalist id="ward-list">
+                        <!-- Danh sách các phường/xã sẽ được cập nhật tự động dựa trên quận/huyện -->
+                    </datalist> <br>
+
+                    <label id="checkbox">
+                        <input type="checkbox">Deliver to a different address.
+                    </label>    <br>
+
+                    <!-- <label for="note">Ghi chú</label> -->
+                    <textarea id="note" placeholder="Note "></textarea>
+                </form>
+                
+
+                <!-- Vận chuyển -->
+                <div class="payment-method">
+                    <h2>Shipping </h2>
+                    <div id="thongbao"> Please enter shipping information. </div>
+                    <h2 id="title">Payment</h2>
+                    <div id="thanhtoan">
+                        <label id="icon1">
+                            <input id="pay" type="radio" name="payment"> Bank transfer
+                            <i class="bi bi-cash"></i>
+                        </label> <br>
+
+                        <label id="icon2">
+                            <input id="pay" type="radio" name="payment"> Pay when delivered (COD)
+                            <i class="bi bi-cash"></i>
+                        </label>   <br>
+
+                        <label id="icon3">
+                            <input id="pay" type="radio" name="payment"> Pay with MoMo wallet
+                            <i class="bi bi-cash"></i> 
+                        </label>   <br>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Đơn hàng -->
+            <div class="order-summary">
+                <!-- Hiển thị đơn hàng ở đây -->
+            </div>
+        </div>
+    </div>
+    <script src="../asserts/javaScript/Order.js"></script>
+</body>
+</html>
