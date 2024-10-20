@@ -1,0 +1,398 @@
+/* START css HEADER */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Css for header */
+/* Head1 */
+body {
+    /* display: flex; */
+    justify-content: center;
+    font-family: 'Poppins', sans-serif; /* Đảm bảo font được sử dụng chính xác */
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    width: 1440px;
+    background-image: url('/Pet-Shop_Project/asserts/image/backgroudHeader.png'); /* Đảm bảo đường dẫn đúng */
+}
+
+.hero {
+    position: relative;
+    background-position: center;
+    height: 594px;
+    width: 1000px;
+}
+
+.head_1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+}
+
+.header_1-left, .header_1-right {
+    display: flex;
+    gap: 24px;
+}
+
+.header_content {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Head2 */
+.head_2 {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 14px 40px; 
+    background-color: #f8f8f8; 
+    border-radius: 40px;
+}
+
+.shop-logo {
+    display: flex;
+    align-items: center;
+}
+
+.shop-logo img {
+    max-height: 50px; 
+    margin-right: 10px; 
+}
+
+.shop-logo p {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 8px;
+}
+
+.menu {
+    flex-grow: 1; 
+    text-align: center; 
+}
+
+.list-menu {
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+}
+
+.list-menu li {
+    margin: 0 15px; 
+    cursor: pointer; 
+    position: relative;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.list-menu li:hover {
+    color: #F87537;
+}
+
+.list-menu li::after {
+    content: ''; 
+    position: absolute;
+    bottom: -5px; 
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #F87537;
+    opacity: 0; 
+    transition: opacity 0.3s; 
+}
+
+.list-menu li:hover::after {
+    opacity: 1; 
+}
+
+.input-head {
+    display: flex;
+    align-items: center; 
+}
+
+.input-head_search {
+    position: relative; 
+    margin-right: 20px; 
+}
+
+.input-head_search input {
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 20px; 
+    width: 200px;
+    border: none;
+    outline: none;
+}
+
+.input-head_search i {
+    position: absolute; 
+    right: 10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background-color: black; 
+    color: white;
+    border-radius: 50%; 
+    padding: 8px; 
+}
+
+.input-head i {
+    margin-left: 20px; 
+    cursor: pointer; 
+}
+
+/* hero_content */
+.hero_content {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    max-width: 1200px; 
+    margin: auto;
+    margin-top: 174px;
+}
+
+.hero_content-left {
+    flex: 1; 
+    max-width: 600px;
+    margin-top: -116px;
+}
+
+.hero_content-left h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FD7E14;
+}
+
+.hero_content-left h2 {
+    font-size: 40px;
+    margin: 10px 0;
+    color: #333; 
+    font-weight: bold;
+}
+
+.hero_content-left p {
+    font-size: 14px; 
+    color: #444; 
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif; /* Sử dụng font chính cho đoạn văn */
+}
+
+.hero_content-right {
+    flex: 1;
+    display: flex; 
+    justify-content: center; 
+}
+
+.hero_content-right img {
+    width: 627px;
+    max-width: 100%;  /*Giữ đúng tỷ lệ */
+    height: 285px; 
+    padding-top: 8px;
+    object-fit: contain; /* Đảm bảo hình ảnh không bị kéo dãn */
+}
+
+/* Add more */
+i {
+    font-size: 20px;
+}
+
+.fa-paw {
+    font-size: 30px;
+}
+/* End header */
+
+
+/* start thanh toán */
+
+.content-pay{
+    width:1440px;
+    background-color: #fdfdfd;
+}
+#icon{
+    padding-left: 637px;
+    padding-top: 100px;
+    padding-right: 647px;
+    
+}
+#icon i{
+   font-size: 100px;
+   color: #75E973;
+}
+#content1{
+    padding-left:380px;
+    padding-right: 329px;
+    padding-top: 15px;
+    font-size: 36px;
+}
+#content2{
+    padding-top: 15px;
+    padding-left: 60px;
+    padding-right: 90px;
+    font-size: 30px;
+    text-align: center;
+}
+/* #content3{
+    padding-top: 36px;
+    padding-left: 390px;
+    font-size: 30px;
+} */
+/* #content4{
+    padding-top: 36px;
+    padding-left: 300px;
+    font-size: 30px;
+} */
+#close {
+    padding-left: 610px;
+    padding-top: 36px;
+    padding-bottom: 100px;
+  
+
+}
+#close p a{
+    text-decoration: none;
+    color:black;
+}
+#close p {
+    font-size: 32px;  
+    margin: 0;    
+    width: 164px;
+    height: 65px;  
+    display: flex; 
+    justify-content: center;     
+    align-items: center;
+    background-color: #FA9926; 
+    border-radius: 10px;           
+}
+/* end thanh toan */
+
+/* Start footer */
+.footer {
+    position: relative;
+    width: 1440px;
+    height: 417px;
+    background-color: #FFF0D9;
+    display: grid;
+    grid-template-rows: 260px 97px ;
+    row-gap: 60px;
+}
+
+.footer .dauchan {
+    position: absolute;
+    width: 620.3px;
+    height: 368.5px;
+    padding: 8.94px 0px 39.56px 171.75px ;
+}
+
+.footer .tron {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 139px;
+}
+
+.footer .logo {
+    width: 127.27px;
+    height: 30px;
+}
+
+.footer .inforU {
+    width: 1296px;
+    height: 188px;
+    display: grid;
+    grid-template-columns: 349px 82px 111px 150px 173px;
+    column-gap: 109px;
+    padding: 72px 72px 0px 72px;
+}
+.footer .infor {
+    display:grid;
+    grid-template-rows: 100px 24px;
+    row-gap: 20px;
+
+}
+.footer .infor > .text{
+    margin: 0px;
+    font-size: 16px;
+}
+
+.footer .text{
+    padding-top: 20px;
+    margin: 0px;
+}
+
+.footer .icon-contact {
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+}
+.footer .icon-contact > .icon {
+    font-size:24px;
+}
+
+.footer .title{
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    
+}
+.footer .title > .text:first-child{
+    padding-top: 20px;
+}
+
+.footer .title > .text{
+    padding-top: 16px;
+}
+
+.footer .store {
+    font-size: 16px;
+}
+
+.footer .store > p {
+    margin: 0px;
+}
+
+.footer .store > .br {
+    margin-top: 16px;
+}
+
+
+.footer .inforD {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr ;
+    column-gap: 196px;
+}
+
+.footer .text-inforD{
+    margin: 0px;
+    font-size: 14px;
+    padding: 15px 0px 0px 312px;
+}
+
+.footer .icon-pay{
+    margin: 0px;
+    font-size: 24px;
+    padding: 0px 312px 0px 0px ;
+}
+
+.footer .icon-pay {
+    display: flex;
+    gap: 30px;
+}
+.footer .icon-pay > .icon {
+    font-size: 30px;
+}
+.menu .list-menu li a {
+    text-decoration: none;
+}
+.menu .list-menu li :hover{
+    color:#F87537;
+}
+/* End footer */
