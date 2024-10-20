@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Basic</title>
+    <link rel="stylesheet" href="./Header.css">
+    <link rel="stylesheet " href="./Footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="/asserts/css/cartt.css">
+</head>
+<body>
+    <div class="container">
+        <div class="app">
+            <!-- start header -->
+            <div class="hero">
+                <div class="head_1">
+                    <div class="header_1-left">
+                        <div class="header_1-left-telephone header_content">
+                            <i class="fa-solid fa-phone"></i>
+                            <p>+379 871-8371</p>
+                        </div>
+                        <div class="header_1-left-email header_content">
+                            <i class="fa-regular fa-envelope"></i>
+                            <p>rgarton@outlook.com</p>
+                        </div>
+                    </div>
+                    <div class="header_1-right">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>8592 Fairground St. Tallahassee, FL 32303</p>
+                    </div>
+                </div>
+                <div class="head_2">
+                    <div class="shop-logo">
+                        <i class="fa-solid fa-paw"></i>
+                        <p>Pet Shop</p>
+                    </div>
+                    <div class="menu">
+                        <ul class="list-menu">
+                            <li> <a href="./homePage.html" >Trang Chủ</a> </li>
+                            <li>Thời Trang</li>
+                            <li>Đồ Ăn</li>
+                        </ul>
+                    </div>
+                    <div class="input-head">
+                        <div class="input-head_search">
+                            <input type="text" placeholder="Search Products...">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <i class="fa-regular fa-user"></i>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+                <div class="hero_content">
+                    <div class="hero_content-left">
+                        <h5>Pet Shop</h5>
+                        <h2>The friendly and 
+                            caring small pet store
+                        </h2>
+                        <p>At et vehicula sodales est proin turpis pellentesque sinulla a aliquam amet rhoncus quisque eget sit</p>
+                    </div>
+                    <div class="hero_content-right">
+                        <img src="/asserts/image/dogHomepage.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- end header -->
+    
+        </div>
+        <!-- start cart -->
+
+
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Dynamic items will be added here -->
+            </tbody>
+        </table>
+        <div class="cart-summary">     
+            <div class="cart-total">
+                <table class="table-total">
+                    <thead>
+                        <tr>
+                            <th>Total Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="total-price">0 VND </td>
+                            <td id="total-quantity">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="order" onclick="saveOrder()">Order</button>
+            </div>
+           
+         
+        </div>
+        
+     
+        <!-- end cart -->
+        
+            <!-- start footer  -->
+            <div class="footer">
+                <img class="dauchan" src="/asserts/image/dauchan.png" alt="">
+                <img class="tron" src="/asserts/image/nuatronfooter.png" alt="">
+                <div class="inforU">
+                    <div class="infor">
+                        <div class="subInfor">
+                            <img src="/asserts/image/Logo.png" class="logo">
+                            <p class="text">Sed viverra eget fames sit varius. <br>
+                                Pellentesque mattis libero viverra dictumst <br>
+                                ornaresed justo convallis vitae
+                            </p>
+                        </div>
+                        <div class="icon-contact">
+                            <i class="icon fa-brands fa-square-facebook"></i>
+                            <i class="icon fa-brands fa-square-instagram"></i>
+                            <i class="icon fa-brands fa-square-x-twitter"></i>
+                            <i class="icon fa-brands fa-square-youtube"></i>
+                        </div>
+                    </div>
+                    <ul class="title"><b>Company</b>
+                        <li class="text">About Us</li>
+                        <li class="text">Blog</li>
+                        <li class="text">Gift</li>
+                        <li class="text">Careers</li>
+                    </ul>
+                    <ul class="title"><b>Useful Links</b>
+                        <li class="text">New products</li>
+                        <li class="text">Best sellers</li>
+                        <li class="text">Discount</li>
+                        <li class="text">F.A.Q</li>
+                    </ul>
+                    <ul class="title"><b>Customer Service</b>
+                        <li class="text">Contact Us</li>
+                        <li class="text">Shipping</li>
+                        <li class="text">Returns</li>
+                        <li class="text">Order tracking</li>
+                    </ul>
+                    <div class="store"><b>Store</b>
+                        <p class="br">8592 Fairground St.</p>
+                        <p>Tallahassee, FL 32303</p>
+                        <p class="br">+775 378-6348</p>
+                        <p>rgarton@outlook.com</p>
+                    </div>
+                </div>
+                <div class="inforD">
+                    <p class="text-inforD"> © Copyright Pet Shop 2024. Design by Figma. guru</p>
+                    <div class="icon-pay">
+                        <i class="icon fa-brands fa-cc-visa"></i>
+                        <i class="icon fa-brands fa-cc-mastercard"></i>
+                        <i class="icon fa-brands fa-cc-paypal"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- end footer -->
+
+    </div>
+
+    <script src="/asserts/javaScript/cartt.js"> </script>    
+</body>
+</html>
+
+
+
+
+
+
