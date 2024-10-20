@@ -153,15 +153,17 @@ function listProducts() {
 // -------------------------------------ĐIỀU HƯỚNG-------------------------------
 function dieu_huong(page) {
     if (page === 'AboutUs') {
-        location.assign("/About_Us/About.html");
+        location.assign("/pages/About.html");
     } else if (page === 'Fashion') {
         location.assign("detailt.html");
     } else if (page === 'Food') {
         location.assign("/FoodPage/boloc.html");
-    } else if (page === 'Cart') {
+    } else if (page === 'Home') {
+        location.assign("/pages/homePage.html");
+    }else if (page === 'Cart') {
         location.assign("/Cart/gio.html");
     } else if (page === 'User') {
-        location.assign("detailt.html");
+        location.assign("/pages/profile.html");
     }
     else {
         alert("Trang không tồn tại!");
