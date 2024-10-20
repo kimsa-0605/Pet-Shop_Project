@@ -3,8 +3,6 @@ const btnPopup = document.querySelector('.btnLogin-popup');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
 const iconCross = document.querySelector('.icon-close');
-
-
 // Khi nhấn vào nút Login, hiển thị form bằng cách thêm class 'active'
 btnPopup.addEventListener('click', () => {
     wrapper.classList.add('active-popup');
@@ -32,26 +30,31 @@ const registerForm = document.querySelector('#register-form')
 
 registerForm.addEventListener('submit', (event) => {
     event.preventDefault();
+
     // Lấy danh sách người dùng từ localStorage
     const userLocal = JSON.parse(localStorage.getItem('user')) || [];
-    //name
+
+    // name
     const nameValue = document.querySelector('#name-register').value;
-    //email
+
+    // email
     const emailValue = document.querySelector('#email-register').value;
-    //exists
+
+    // Check if the user already exists
     const exits = userLocal.find(user => user.email === emailValue);
-    if(exits){
-        alert('User already have an account! Please Log in');
-        return;
-    }
-    //password
-    const passwordValue = document.querySelector('#password-register').value;
-    if(passwordValue.length<8){
-        alert('Please enter a strong password(at least 8 characters)')
+    if (exits) {
+        alert('User already has an account! Please Log in.');
         return;
     }
 
-    //Create userID
+    // password
+    const passwordValue = document.querySelector('#password-register').value;
+    if (passwordValue.length < 8) {
+        alert('Please enter a strong password (at least 8 characters)');
+        return;
+    }
+
+    // Create userID
     const userId = `user-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
 
     const user = {
@@ -61,23 +64,24 @@ registerForm.addEventListener('submit', (event) => {
         password: passwordValue,
     };
 
-    //check ussers already have or not
+    // Add new user to the list
     let users = JSON.parse(localStorage.getItem('user')) || [];
-    //Add new user
-    users.push(user)
-    // Save user in localStorage
+    users.push(user);
     localStorage.setItem('user', JSON.stringify(users));
 
-    // Retrieve the saved user and log it
-    const savedUser = JSON.parse(localStorage.getItem('user'));
-    console.log(savedUser); // Kiểm tra dữ liệu được lưu trữ
-    alert('Registration successfully!');
+    console.log('Saved Users:', JSON.parse(localStorage.getItem('user'))); // Log stored users
 
-    // Remove data after register
+    alert('Registration successful!');
+
+    // Xóa dữ liệu form đăng ký
     document.querySelector('#name-register').value = '';
     document.querySelector('#email-register').value = '';
     document.querySelector('#password-register').value = '';
+
+    // Chuyển sang form đăng nhập
+    loginLink.click(); // Giả lập nhấp vào link đăng nhập
 });
+
 
 //Create account for Admin
 const Admin = {
@@ -89,8 +93,7 @@ const Admin = {
 const loginForm = document.querySelector('#login-form');
 
 loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
+    event.preventDefault()
     // Lấy danh sách người dùng từ localStorage
     const users = JSON.parse(localStorage.getItem('user')) || [];
 
@@ -100,12 +103,14 @@ loginForm.addEventListener('submit', (event) => {
 
     // Kiểm tra người dùng có phải admin không
     if (email === Admin.email && password === Admin.password) {
-        window.location.href = './login.html';
+        window.location.href = '../../pages/homePage.html';
         return;
     }
 
     // Tìm kiếm người dùng trong danh sách
     const foundUser = users.find(user => user.email === email);
+    //Lưu Id của người đang tương tác
+    localStorage.setItem('userID', foundUser.id)
 
     if (!foundUser) {
         alert('User not found');
@@ -122,7 +127,7 @@ loginForm.addEventListener('submit', (event) => {
 
     // Đăng nhập thành công
     alert('Login successfully!');
-    window.location.href = '../Header/Header.html';
+    window.location.href ='/pages/homePage.html';
 });
 
 //Password convinience
