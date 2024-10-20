@@ -127,6 +127,8 @@ function saveOrderDetails() {
     // Lưu lại danh sách đơn hàng mới vào localStorage
     localStorage.setItem('orders', JSON.stringify(orders));
 
+    
+
     // Xóa sản phẩm khỏi localStorage
     localStorage.removeItem('orderDetails');
 
