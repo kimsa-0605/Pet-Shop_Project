@@ -100,6 +100,13 @@ function saveOrderDetails() {
         return; // Ngừng thực hiện nếu có trường nào chưa được điền
     }
 
+    // Kiểm tra phương thức thanh toán
+    const paymentMethod = document.querySelector('input[name="payment"]:checked');
+    if (!paymentMethod) {
+        alert('Please select a payment method.');
+        return; // Ngừng thực hiện nếu chưa chọn phương thức thanh toán
+    }
+
     // Lấy ngày hiện tại
     const orderDate = new Date().toLocaleDateString(); 
 
@@ -115,6 +122,7 @@ function saveOrderDetails() {
         buyer: buyerInfo,
         products: orderDetails,
         totalAmount: totalAmount, // Sử dụng giá trị đã tính toán
+        paymentMethod: paymentMethod.value,
         orderDate: orderDate, 
     };
 
@@ -129,6 +137,7 @@ function saveOrderDetails() {
 
     // Xóa sản phẩm khỏi localStorage
     localStorage.removeItem('orderDetails');
+    localStorage.removeItem('productInCart'); // Xóa giỏ hàng
 
     // Sau khi lưu thông tin thành công, chuyển hướng sang trang thanh toán
     window.location.href = './thanhtoan.html'; // chính xác trang thanh toán thành công
