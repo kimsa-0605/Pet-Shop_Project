@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết sản phẩm</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="/asserts/css/profile.css">
+    <link rel="stylesheet" href="/asserts/css/homePage.css">
+    <script src="/asserts/javaScript/homePage.js"></script>
     <!-- FUENTE GOOGLE FONTS : Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/asserts/css/homePage.css">
-    <link rel="stylesheet" href="/asserts/css/detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <!-- ICONS: Line Awesome -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
-    <!-- Animaciones AOS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">  
 </head>
-<body onload="displayProductDetail()">
-    <div class="container-detail">
-        <!-- Start header -->
+<body>
+    <!-- Container -->
+     <div class="container-profile">
+            <!-- Start header -->
         <div class="appOther">
             <div class="heroOther">
                 <div class="head_1">
@@ -44,10 +43,10 @@
                     </div>
                     <div class="menu">
                         <ul class="list-menu">
-                            <li>Home</li>
-                            <li>Fashion</li>
-                            <li>Food</li>
-                            <li>About Us</li>
+                            <li onclick="dieu_huong('Home')" >Home</li>
+                            <li onclick="dieu_huong('Fashion')">Fashion</li>
+                            <li onclick="dieu_huong('Food')">Food</li>
+                            <li onclick="dieu_huong('AboutUs')">About Us</li>
                         </ul>
                     </div>
                     <div class="input-head">
@@ -55,24 +54,68 @@
                             <input type="text" placeholder="Search Products...">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-                        <i class="fa-regular fa-user"></i>
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <i class="fa-regular fa-user" onclick="dieu_huong('User')"></i>
+                        <i class="fa-solid fa-cart-shopping" onclick="dieu_huong('Cart')"></i>
                     </div>
                 </div>
             </div>
         </div>
         <!-- End header -->
+        <!-- Start content -->
+        <div class="container-profile">
+            <div class="c-profile">
+                <div class="p-sidebar">
+                    <div id="avatar-infor">
+                        <!-- <div class="image-avatar">
+                            <img src="/asserts/image/avatar.jpg" alt="">
+                        </div>
+                        <div class="a-infor">
+                            <p class="p-username">kimsa06</p>
+                            <p id="updateInfor"><span class="fa-solid fa-pencil"></span> Update profile</p>
+                        </div> -->
+                    </div>
+                    <div class="menu-p-sidebar">
+                        <ul class="m-p-sidebar">
+                            <li id="viewProfileItem" class="nav-item p-view">
+                                <div class="box-p"><span class="icon-sidebar-p fa-solid fa-file-invoice"></span> <p class="text-p">View profile</p></div>
+                            </li>
+                            <li id="updateProfileItem" class="nav-item">
+                                <div class="box-p"><span class="icon-sidebar-p fa-solid fa-file-pen"></span> <p class="text-p">Update profile</p></div>
+                            </li>
+                            <li id="logout">
+                                <div class="box-p"><span class="icon-sidebar-p fa-solid fa-arrow-right-from-bracket"></span> <p class="text-p">Log out</p></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-content">
+                    <div class="p-title">
+                        <p class="big-p-title">My Profile Information</p>
+                        <p class="small-p-title">Management to Secure Account.</p>
+                    </div>
+                    <form id="content-profile">
+                        
+                    </form>
+                </div>
 
-        <!-- Start Detailt-product -->
-
-         <div id="detail-product"></div>
-         <script src="/asserts/javaScript/homePage.js"></script>
-         <script  src="/asserts/javaScript/detail.js"></script>
-         <!-- End Detailt-product -->
-
-        
-         <!-- Start footer -->
-         <div class="footer">
+                <div id="logout-modal">
+                    <div class="logout-m-content">
+                        <p class="inform-logout">Are you sure you want to log out? <br>
+                            <i>If you are certain, please press the OK button and you will be logged out of this website.</i>
+                        </p>
+                        <div 
+                            class="button-p-modal"><button class="button-modal close-logout">Cancel</button>
+                            <button class="button-modal button-ok" onclick="logOut()">OK</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/asserts/javaScript/profile.js"></script>
+        <!-- End content -->
+        <!-- Start footer -->
+        <div class="footer">
             <img class="dauchan" src="/asserts/image/dauchan.png" alt="">
             <img class="tron" src="/asserts/image/nuatronfooter.png" alt="">
             <div class="inforU">
@@ -125,9 +168,7 @@
                 </div>
             </div>
         </div>
-        <!-- End footer -->
-    </div>
-
-    
+    <!-- End footer -->
+     </div>
 </body>
 </html>

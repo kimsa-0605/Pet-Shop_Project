@@ -1,0 +1,312 @@
+.appOther {
+    display: flex;
+    justify-content: center;
+    width: 1440px;
+    background-image: url('/asserts/image/backgroundHOther.png'); /* Đảm bảo đường dẫn đúng */
+}
+
+.heroOther {
+    position: relative;
+    background-position: center;
+    height: 200px;
+    width: 1000px;
+}
+
+.container-profile {
+    width: 1440px;
+    height: 590px;
+    background-color: #F8F9FA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#content-profile {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.c-profile {
+    height: 511px;
+    width: 1287px;
+    background-color: white;
+    margin-top: 39px;
+    margin-bottom: 39px;
+    display: grid;
+    grid-template-columns: 267px 1020px;
+}
+
+.p-sidebar {
+    background-color: #F8F9FA ;
+}
+
+#avatar-infor {
+    display: flex;
+    column-gap: 10px; 
+    border-bottom: 1px solid rgba(128, 128, 128, 0.292);
+    justify-content: center;
+    margin-right: 18px;
+}
+
+.a-infor, .image-avatar {
+    margin-bottom: 10px;
+}
+
+#updateInfor {
+    color: gray;
+    cursor: pointer;
+}
+
+#updateInfor:hover {
+    color: #E46721;
+}
+.p-username {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.image-avatar img {
+    width: 60px;
+    height: 60px;
+    background-color: aqua;
+    border-radius: 50%;
+}
+
+.box-p {
+    margin-left: 35px;
+    display: grid;
+    width: 90%;
+    grid-template-columns: 1fr 3fr;
+}
+.menu-p-sidebar {
+    margin-left: 30px;
+    margin-top: 23px;
+    font-size: 16px;
+}
+
+.m-p-sidebar {
+    list-style: none;
+}
+
+.nav-item {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 34px;
+    color: rgba(128, 128, 128, 0.663);
+    border: 1px solid rgba(128, 128, 128, 0.663);
+}
+
+.icon-sidebar-p {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+#logout {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 34px;
+    color: white;
+    background-color: #E46721;
+}
+
+#logout:hover {
+    background-color: #e46921c3;
+    transform: scale(1s);
+}
+
+
+#logout-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
+  }
+  
+  /* Modal Content */
+  .logout-m-content {
+    background-color: #fefefe;
+    margin-top: 5%;
+    margin-left: 35%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 30%;
+  }
+
+  .inform-logout {
+    color: #E46721;
+  }
+  .inform-logout i {
+    font-size: 12px;
+    color: grey;
+  }
+
+  .button-p-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 80px;
+  }
+  .button-modal {
+    margin-top: 80px;
+    width: 60px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .close-logout {
+    background-color: #888888c1;
+    color: white;
+  }
+  
+  .close-logout:hover,
+  .close-logout:focus {
+    background-color: #8888888d;
+  }
+
+  .button-ok {
+    background-color: #E46721;
+    color: white;
+  }
+
+  .button-ok:hover,
+  .button-ok:focus {
+    background-color: #e46921b3;
+  }
+
+
+.p-content {
+    background-color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.301);
+}
+
+.p-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 71px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.292);
+    margin-left: 18px;
+    margin-right: 18px;
+
+}
+
+.big-p-title {
+    font-size: 18px;
+}
+
+.small-p-title {
+    font-size: 14px;
+}
+
+.content-profile {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.infor-profile {
+    height: 334px;
+    margin-top: 32px;
+    margin-left: 68px;
+    border-right: 1px solid rgba(128, 128, 128, 0.292);
+}
+
+.infor-p-content-container {
+    display: grid;
+    width: 600px;
+    grid-template-columns: 1fr 2fr;
+}
+
+.infor-p-content, .infor-p-content-result {
+    margin-bottom: 27px;
+}
+ 
+#choose {
+    display: flex;
+    gap: 10px;
+}
+
+.input-form {
+    width: 300px;
+    height: 25px;
+}
+
+.input-form:focus {
+    border: 1px solid #E46721; /* Màu cam khi focus */
+    box-shadow: 0 0 5px rgba(228, 103, 33, 0.5); /* Tạo hiệu ứng đổ bóng màu cam */
+}
+
+.avatar-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.a-image-content {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.301);
+}
+.a-image-content, .a-image-content img{
+    width: 168px;
+    height: 168px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.name-User-profile {
+    margin-top: 10px;
+}
+
+.change-image {
+    width: 92px;
+    height: 44px;
+    border: 1px solid rgba(128, 128, 128, 0.292);
+    margin-top: 18px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.fa-camera {
+    font-size: 30px;
+    color: #E46721;
+}
+.p-view {
+    color: #E46721 !important;
+    border: 1px solid #E46721 !important;
+}
+
+.save {
+    width: 83px;
+    height: 44px;
+    border-radius: 5px;
+    margin-left: 72px;
+    background-color: #E46721;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.save:hover {
+    background-color: #e46921dd;
+    transition: calc(1s);
+}

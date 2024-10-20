@@ -3,7 +3,7 @@ function showCartItem() {
     let productInCart = localStorage.getItem('productInCart') ? JSON.parse(localStorage.getItem('productInCart')) : [];
     
     // Lọc sản phẩm theo userID
-    productInCart = productInCart.filter(value => value.userId === userId);
+    productInCart = productInCart.filter(value => value.userID === userId);
 
     let HTML = '';
     let totalPrice = 0;

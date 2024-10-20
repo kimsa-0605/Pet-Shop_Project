@@ -37,9 +37,9 @@ function displayProductDetail() {
                     <p class="price">${product.price} VNĐ</p>
 
                     <div class="quantity-container">
-                        <button onclick="minusQuantity(${product.i}, ${product.quantityBuy})" class="decrease-btn">-</button>
+                        <button onclick="minusQuantityDetail()" class="decrease-btn">-</button>
                         <span id="quantity-display" class="mx-2">${currentQuantity}</span>
-                        <button onclick="plusQuantity(${product.i})" class="increase-btn">+</button>
+                        <button onclick="plusQuantityDetail()" class="increase-btn">+</button>
                     </div>
                     
                     <div class="button-detail">
@@ -71,12 +71,12 @@ function displayProductDetail() {
 // Tăng giảm số lượng sản phẩm mua
 let currentQuantity = 1;
 
-function plusQuantity() {
+function plusQuantityDetail() {
     currentQuantity++;
     document.getElementById("quantity-display").innerText = currentQuantity;
 }
 
-function minusQuantity() {
+function minusQuantityDetail() {
     if (currentQuantity > 1) {
         currentQuantity--;
     } else {
@@ -86,6 +86,8 @@ function minusQuantity() {
 }
 
 // ---------------------------THÊM VÀO GIỎ HÀNG-----------------------
+
+const userID = localStorage.getItem("userID");
 let getDataInCart = (key) => {
     const data  = localStorage.getItem(key);
     return data ? JSON.parse(data) : [];
@@ -98,7 +100,7 @@ if(userDataInCart){
 }else{
     console.log('Error')
 }
-// let productInCart = localStorage.getItem("productInCart") ? JSON.parse(localStorage.getItem("productInCart")) : [];
+
 function addToCart(id) {
     console.log(id);
     let checkProduct = userDataInCart.some(value => value.id === id);
@@ -108,7 +110,8 @@ function addToCart(id) {
         console.log(pInProduct);
         userDataInCart.unshift ({
             ...pInProduct,
-            quantityBuy: currentQuantity
+            quantityBuy: currentQuantity,
+            userID: userID
         })
         localStorage.setItem("productInCart", JSON.stringify(userDataInCart));
     }else {
@@ -116,7 +119,8 @@ function addToCart(id) {
         let pInProduct = userDataInCart.find(value => value.id === id)
         userDataInCart[getIndex] = {
             ...pInProduct,
-            quantityBuy: ++pInProduct.quantityBuy
+            quantityBuy: ++pInProduct.quantityBuy,
+            userID: userID
         }
         localStorage.setItem("productInCart", JSON.stringify(userDataInCart));
     }
@@ -140,11 +144,13 @@ document.addEventListener('DOMContentLoaded', displayProductDetail);
 // --------------------------BUY NOW------------------------------------------
 function buyNow(productId) {
     const product = products.find(p => p.id === productId);
-    
     if (product) {
-        localStorage.setItem('order', JSON.stringify(product));
-
-        window.location.href = "/Cart/gio.html";
+        const orderDetails = {
+            ...product,
+            userID: userID
+        };
+        localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
+        window.location.href = "/pages/cartt.html";
     } else {
         console.error('The product does not exist.');
     }
