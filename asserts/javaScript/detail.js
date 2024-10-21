@@ -1,4 +1,3 @@
-
 let products = [];
 // Hàm lấy tham số từ URL
 function getQueryParam(param) {
@@ -89,15 +88,15 @@ function minusQuantityDetail() {
 
 const userID = localStorage.getItem("userID");
 let getDataInCart = (key) => {
-    const data  = localStorage.getItem(key);
+    const data = localStorage.getItem(key);
     return data ? JSON.parse(data) : [];
 }
 let userDataInCart = getDataInCart("productInCart")
 console.log(userDataInCart);
 console.log(Array.isArray(userDataInCart));
-if(userDataInCart){
+if (userDataInCart) {
     console.log('Success: true')
-}else{
+} else {
     console.log('Error')
 }
 
@@ -105,16 +104,16 @@ function addToCart(id) {
     console.log(id);
     let checkProduct = userDataInCart.some(value => value.id === id);
     console.log(checkProduct);
-    if(!checkProduct) {
-        let pInProduct = products.find(value => value.id ===  id);
+    if (!checkProduct) {
+        let pInProduct = products.find(value => value.id === id);
         console.log(pInProduct);
-        userDataInCart.unshift ({
+        userDataInCart.unshift({
             ...pInProduct,
             quantityBuy: currentQuantity,
             userID: userID
         })
         localStorage.setItem("productInCart", JSON.stringify(userDataInCart));
-    }else {
+    } else {
         let getIndex = userDataInCart.findIndex(value => value.id === id);
         let pInProduct = userDataInCart.find(value => value.id === id)
         userDataInCart[getIndex] = {
