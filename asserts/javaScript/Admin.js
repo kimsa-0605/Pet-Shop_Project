@@ -1,47 +1,121 @@
-let IDProduct = 1;
-let home_page = 'food'; // đạt giá trị mặc định cho trang chulà food 
-let foodProducts = JSON.parse(localStorage.getItem('foodProducts')) || [];
+let home_page = 'food';
+let foodProducts = JSON.parse(localStorage.getItem('initialProducts')) || [];
 let fashionProducts = JSON.parse(localStorage.getItem('fashionProducts')) || [];
-let Update_new_products;
-let foodID = 1;
-let fashionID = 1;
+let updateProductIndex;
 
-window.onload = function () {
-    loadProducts(home_page);
-}
-// Để phân biệt người dùng đang bấm vào đâu trong manager products
 function setCategory(category) {
     home_page = category;
     loadProducts(category);
-    document.getElementById('categoryTitle').innerText = `Manage ${SetName(category)} Products`;
+    document.getElementById('categoryTitle').innerText = `Manage ${setName(category)} Products`;
+}
+function setName(home_page) {
+    return home_page.charAt(0).toUpperCase() + home_page.slice(1);
+}
+// Tạo ID sản phẩm ngẫu nhiên
+function generateRandomID() {
+    return Math.floor(Math.random() * 100000);
 }
 
-function loadProducts(category) {
-    const products = category === 'food' ? foodProducts : fashionProducts;
-    const tbody = document.getElementById('tbody');
-    tbody.innerHTML = '';
+function createTable() {
+    document.getElementById('createButton').style.display = 'none';
+    document.querySelector('table').style.display = 'none';
+    document.getElementById('food1').style.display = 'none';
+    document.getElementById('fashion1').style.display = 'none';
+    // document.querySelector('.side_bar').style.marginTop = '-10px';
 
-    // lọc ra từng phần tử 
-    products.forEach((product, index) => {
-        const row = document.createElement('tr'); // tạo một tr mới 
-        row.innerHTML = `
-        <td>${product.id}</td>
-            <td>${product.name}</td>
-            <td><img src="${product.image}" alt="${product.name}" width="50"></td>
-            <td>${product.price}</td>
-            <td>
-                <button class="update" onclick="showUpdateProductForm(${index})"><i class="fa-solid fa-wrench"></i></button>
-                <button class="delete"onclick="deleteProduct(${index})"><i class="fa-solid fa-trash"></i></button>
-            </td>
-        `;
-        tbody.appendChild(row);
+
+}
+function menu() {
+    document.getElementById('createButton').style.display = 'none';
+    document.getElementById('food1').style.display = 'block';
+    document.querySelector('.side_bar').style.marginBottom = '70px';
+    document.getElementById('fashion1').style.display = 'block';
+
+    const table = document.querySelector('table');
+    table.style.display = 'table';
+    table.style.width = '100%';
+}
+function createTable1() {
+    document.getElementById('createButton').style.display = 'block';
+    document.querySelector('table').style.display = 'block';
+    document.getElementById('food1').style.display = 'block';
+    const table = document.querySelector('table');
+    table.style.display = 'table';
+    table.style.width = '100%';
+}
+fashion1.addEventListener("click", () => {
+    fashion1.classList.add('manager_food');
+    food1.classList.remove('manager_food');
+    loadProducts('fashion');
+});
+food1.addEventListener("click", () => {
+    food1.classList.add('manager_food');
+    fashion1.classList.remove('manager_food');
+    loadProducts('food');
+});
+
+function setActive(element) {
+    const elements = [products_manager1, manager_user1, manager_order1, setting];
+    elements.forEach(e => {
+        if (e === element) {
+            e.classList.add('products_manager');
+        } else {
+            e.classList.remove('products_manager');
+        }
     });
 }
+// Thêm sự kiện cho các phần tử
+products_manager1.addEventListener("click", () => setActive(products_manager1));
+manager_user1.addEventListener("click", () => setActive(manager_user1));
+manager_order1.addEventListener("click", () => setActive(manager_order1));
+setting.addEventListener("click", () => setActive(setting));
+// Thêm sản phẩm
+const sideBars = document.querySelectorAll('.side_bar:first-child');
+sideBars.forEach(sideBar => {
+    sideBar.style.marginBottom = '70px'; // Thay đổi margin-bottom cho mỗi side_bar
+});
+function addProduct() {
+    const name = document.getElementById('PName').value;
+    const image = document.getElementById('PImage').files[0];
+    const price = document.getElementById('pPrice').value;
 
+    if (!name || !image || !price) {
+        alert('Please fill all fields!');
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onloadend = function () {
+        const product = {
+            id: generateRandomID(),
+            name,
+            image: reader.result,
+            price
+        };
+
+        if (home_page === 'food') {
+            foodProducts.push(product);
+            localStorage.setItem('initialProducts', JSON.stringify(foodProducts));
+        } else {
+            fashionProducts.push(product);
+            localStorage.setItem('fashionProducts', JSON.stringify(fashionProducts));
+        }
+
+        loadProducts(home_page);
+        closeAddProductForm();
+        // document.querySelector('.side_bar').style.marginBottom = '70px';
+
+    };
+
+    reader.readAsDataURL(image);
+}
+
+// Hiển thị form thêm sản phẩm
 function showAddProductForm() {
     document.querySelector('.addProducts').style.display = 'block';
 }
 
+// Đóng form thêm sản phẩm
 function closeAddProductForm() {
     document.querySelector('.addProducts').style.display = 'none';
     document.getElementById('PName').value = '';
@@ -49,97 +123,91 @@ function closeAddProductForm() {
     document.getElementById('pPrice').value = '';
 }
 
-function addProduct() {
-    const name = document.getElementById('PName').value;
-    const price = document.getElementById('pPrice').value;
-    const image = document.getElementById('PImage').files[0];
-
-    // kiểm tra xem đã ddienf đủ thông tin chưa
-    if (name && price && image) {
-        const reader = new FileReader(); // tạo một dối tượng mới đẻ người đọc lấy ảnh từ file trong máy 
-        reader.onload = function (element ) {
-            const newProduct = {
-                id: home_page === 'food' ? foodID++: fashionID++,
-                name: name,
-                image: element.target.result,
-                price: price,
-            };
-
-            if (home_page === 'food') {
-                foodProducts.push(newProduct);
-                localStorage.setItem('foodPc roducts', JSON.stringify(foodProducts));
-            } else {
-                fashionProducts.push(newProduct);
-                localStorage.setItem('fashionProducts', JSON.stringify(fashionProducts));
-            }
-            loadProducts(home_page);
-            closeAddProductForm();
-        };
-        reader.readAsDataURL(image);
-    } else {
-        alert('Please fill all fields.');
-    }
-}
-
-// hiển thị form cập nhật sản phẩm 
+// Hiển thị form cập nhật sản phẩm
 function showUpdateProductForm(index) {
-    const products = home_page === 'food' ? foodProducts : fashionProducts;
-    const product = products[index];
-
-    Update_new_products = index;
+    const product = home_page === 'food' ? foodProducts[index] : fashionProducts[index];
     document.getElementById('name').value = product.name;
+    document.getElementById('updateImage').value = '';
     document.getElementById('price').value = product.price;
-
+    updateProductIndex = index;
     document.querySelector('.upload-products').style.display = 'block';
 }
-// đíng form của sản phẩm
+
+// Đóng form cập nhật sản phẩm
 function closeUpdateProductForm() {
     document.querySelector('.upload-products').style.display = 'none';
-    document.getElementById('name').value = '';
-    document.getElementById('price').value = '';
 }
 
 function updateProduct() {
     const name = document.getElementById('name').value;
-    const price = document.getElementById('price').value;
     const image = document.getElementById('updateImage').files[0];
+    const price = document.getElementById('price').value;
 
-    const products = home_page === 'food' ? foodProducts : fashionProducts;
+    if (!name || !image || !price) {
+        alert('Please fill all fields!');
+        return;
+    }
 
-    if (image) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            products[Update_new_products] = {
-                id: products[Update_new_products].id,
-                name: name || products[Update_new_products].name,
-                image: e.target.result || products[Update_new_products].image,
-                price: price || products[Update_new_products].price,
-            };
+    const reader = new FileReader();
+    reader.onloadend = function () {
+        const oldProduct = home_page === 'food' ? foodProducts[updateProductIndex] : fashionProducts[updateProductIndex];
 
-            localStorage.setItem(home_page === 'food' ? 'foodProducts' : 'fashionProducts', JSON.stringify(products));
-            loadProducts(home_page);
-            closeUpdateProductForm();
+        const product = {
+            id: oldProduct.id, // Giữ nguyên ID cũ
+            name,
+            image: reader.result,
+            price
         };
-        reader.readAsDataURL(image);
-    } else {
-        products[Update_new_products].name = name || products[Update_new_products].name;
-        products[Update_new_products].price = price || products[Update_new_products].price;
 
-        localStorage.setItem(home_page === 'food' ? 'foodProducts' : 'fashionProducts', JSON.stringify(products));
+        if (home_page === 'food') {
+            foodProducts[updateProductIndex] = product;
+            localStorage.setItem('initialProducts', JSON.stringify(foodProducts)); // Cập nhật đúng tên key
+        } else {
+            fashionProducts[updateProductIndex] = product;
+            localStorage.setItem('fashionProducts', JSON.stringify(fashionProducts));
+        }
+
         loadProducts(home_page);
         closeUpdateProductForm();
+    };
+
+    reader.readAsDataURL(image);
+}
+
+// Xóa sản phẩm
+function deleteProduct(index) {
+    const products = confirm('Are you sure you want to delete this product?');
+    if (products) {
+        if (home_page === 'food') {
+            foodProducts.splice(index, 1);
+            localStorage.setItem('foodProducts', JSON.stringify(foodProducts));
+        } else {
+            fashionProducts.splice(index, 1);
+            localStorage.setItem('fashionProducts', JSON.stringify(fashionProducts));
+        }
+        loadProducts(home_page);
     }
 }
 
-// xóa sản phẩm ra khỏi local thực hiện xoa tren form icon
-function deleteProduct(index) {
-    const products = home_page === 'food' ? foodProducts : fashionProducts;
-    products.splice(index, 1);
-    localStorage.setItem(home_page === 'food' ? 'foodProducts' : 'fashionProducts', JSON.stringify(products));
-    loadProducts(home_page);
-}
+// Tải sản phẩm từ localStorage
+function loadProducts(category) {
+    const tbody = document.getElementById('tbody');
+    tbody.innerHTML = ''; // Xóa nội dung cũ
 
-function SetName(string) {
-    // lấy ksi tự đầu tiên và viết hoa sau đó cộng kí tự bắt đầu là 1 food hoạc fashion
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    const products = category === 'food' ? foodProducts : fashionProducts;
+
+    products.forEach((product, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${product.id}</td>
+            <td>${product.name}</td>
+            <td><img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px;"></td>
+            <td>${product.price}</td>
+            <td>
+                
+                 <button class="update" onclick="showUpdateProductForm(${index})"><i class="fa-solid fa-wrench"></i></button>
+                <button class="delete"onclick="deleteProduct(${index})"><i class="fa-solid fa-trash"></i></button>
+        `;
+        tbody.appendChild(row);
+    });
 }

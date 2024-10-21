@@ -4,29 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amin</title>
+    <title>Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <!-- <link rel="stylesheet" href="./Hompage.css"> -->
+    <link rel="stylesheet" href="./Hompage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="/Pet-Shop_Project/asserts/css/Admin.css">
+    <link rel="stylesheet" href="../asserts/css/Admin.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 </head>
 
-<body>
+<body onload="loadProducts(home_page); document.getElementById('categoryTitle').innerText = `Manage ${setName(home_page)} Products`;">
     <div class="container">
         <!-- Start Header -->
         <header class="head">
             <div class="logo-pet">
-                <img src="/Pet-Shop_Project/asserts/image/Logo.png" alt="Logo">
+                <img src="../asserts/image/Logo.png" alt="Logo">
             </div>
             <nav class="center-_head">
-                <p>Trang Chủ</p>
-                <p>Thời Trang</p>
-                <p>Đồ ăn</p>
+                <p><a href="">Home</a></p>
+                <p><a href="">Fashion</a></p>
+                <p><a href="">Food</a></p>
+                <p><a href="">About Us</a></p>
             </nav>
             <div class="last_head">
                 <div class="search-container">
@@ -45,43 +46,41 @@
         <main class="content">
             <aside class="left_content">
                 <div class="contain_side">
-                    <div class="side_bar">
+                    <div id="products_manager1" class="side_bar products_manager" onclick="createTable1()">
                         <a class="nav-link" href="#">
                             <div class="sb-nav-link-icon" id="main_menu">
-                                <i class="fa-solid fa-file-lines"></i>
-                                Manage products
-                                <ul class="ul_menu">
-                                    <li class="detail-li">
-                                        <a href="#" onclick="setCategory('food')">Food</a>
-                                    </li>
-                                    <li class="detail-li">
-                                        <a href="#" onclick="setCategory('fashion')">Fashion</a>
-                                    </li>
+                                <i class="fa-solid fa-file-lines manager_products"></i>
+                                <a href="#" onclick="menu()">Manage Products</a>
+                                <ul class="ul_menu" onclick="createTable1()">
+                                    <li id="food1" class="detail-li manager_food"><a href="#"
+                                            onclick="setCategory('food')">Food</a></li>
+                                    <li id="fashion1" class="detail-li"><a href="#" onclick="setCategory('fashion')"
+                                            id="Fashion">Fashion</a></li>
                                 </ul>
                             </div>
                         </a>
                     </div>
-                    <div class="side_bar">
+                    <div id="manager_user1" class="side_bar" onclick="createTable()">
                         <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon">
-                                <i class="fa-solid fa-file-lines"></i>
-                                Manage User
+                            <div class="sb-nav-link-icon " onclick="createTable()">
+                                <i class="fa-solid fa-file-lines" ></i>
+                                <a href="#" onclick="setCategory('users')">Manage User</a>
                             </div>
                         </a>
                     </div>
-                    <div class="side_bar">
+                    <div id="manager_order1" class="side_bar">
                         <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon">
+                            <div class="sb-nav-link-icon" onclick="createTable()">
                                 <i class="fa-solid fa-file-lines"></i>
-                                Manage Order
+                                <a href="#" onclick="setCategory('orders')">Manage Order</a>
                             </div>
                         </a>
                     </div>
-                    <div class="side_bar">
+                    <div id="setting" class="side_bar">
                         <a class="nav-link" href="#">
-                            <div class="sb-nav-link-icon">
+                            <div class="sb-nav-link-icon" onclick="createTable()">
                                 <i class="fa-solid fa-gear"></i>
-                                Setting
+                                <a href="#" onclick="setCategory('setting')">Setting</a>
                             </div>
                         </a>
                     </div>
@@ -89,10 +88,9 @@
             </aside>
 
             <section class="right_content">
-                <h1 id="categoryTitle">Manage Food Products</h1>
+                <h1 id="categoryTitle">Manage Products</h1>
                 <button class="btn btn-primary" id="createButton" onclick="showAddProductForm()">
-                    Create
-                    <i class="fas fa-plus mr-2"></i>
+                    Create <i class="fas fa-plus mr-2"></i>
                 </button>
                 <table class="table">
                     <thead class="thead-light">
@@ -109,15 +107,22 @@
             </section>
         </main>
         <!-- End Content -->
+        <!-------START----FOOTER-->
+        <!--------END-FOOTER-->
+    </div>
+
+    <!-- Add Product Form -->
+    
+        <!-- End Content -->
 
         <!-- Start Footer -->
         <footer class="footer">
-            <img class="dauchan" src="/Pet-Shop_Project/asserts/image/dauchan.png" alt="">
-            <img class="tron" src="/Pet-Shop_Project/asserts/image/nuatronfooter.png" alt="">
+            <img class="dauchan" src="../asserts/image/dauchan.png" alt="">
+            <img class="tron" src="../asserts/image/nuatronfooter.png" alt="">
             <div class="inforU">
                 <div class="infor">
                     <div class="subInfor">
-                        <img src="/Pet-Shop_Project/asserts/image/Logo.png" class="logo" alt="Logo">
+                        <img src="../asserts/image/Logo.png" class="logo" alt="Logo">
                         <p class="text">Sed viverra eget fames sit varius. <br>
                             Pellentesque mattis libero viverra dictumst <br>
                             ornaresed justo convallis vitae
@@ -175,7 +180,7 @@
             <i class="fa-solid fa-xmark" onclick="closeAddProductForm()"></i>
         </div>
         <input type="text" id="PName" placeholder="Product Name">
-        <input type="file" id="PImage">
+        <input  class = "button_img" type="file" id="PImage" placeholder="Product Image">
         <input type="number" id="pPrice" placeholder="Product Price" min="1">
         <button id="addProductBtn" onclick="addProduct()">Add Product</button>
         <button id="cancelBtn" onclick="closeAddProductForm()">Cancel</button>
@@ -188,12 +193,12 @@
             <i class="fa-solid fa-xmark" onclick="closeUpdateProductForm()"></i>
         </div>
         <input type="text" placeholder="Name..." id="name">
-        <input type="file" id="updateImage" placeholder="Upload new Image">
+        <input class="button_img" type="file" id="updateImage" placeholder="Upload new Image">
         <input type="number" placeholder="Price..." id="price" min="1">
         <button onclick="updateProduct()">Update</button>
         <button onclick="closeUpdateProductForm()">Close</button>
     </div>
-<script src="/Pet-Shop_Project/asserts/javaScript/Admin.js"></script>
+<script src="../asserts/javaScript/Admin.js"></script>
     
 </body>
 
