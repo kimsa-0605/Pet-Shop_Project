@@ -29,47 +29,53 @@ iconCross.addEventListener('click', () => {
 const registerForm = document.querySelector('#register-form')
 
 registerForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Ngăn reload trang
 
     // Lấy danh sách người dùng từ localStorage
-    const userLocal = JSON.parse(localStorage.getItem('user')) || [];
+    let users = JSON.parse(localStorage.getItem('user')) || [];
 
-    // name
+    // Kiểm tra nếu dữ liệu không phải là mảng
+    if (!Array.isArray(users)) {
+        console.warn('Data in localStorage is not an array. Resetting to empty array.');
+        users = [];
+    }
+
+    // Lấy giá trị từ các ô input
     const nameValue = document.querySelector('#name-register').value;
-
-    // email
     const emailValue = document.querySelector('#email-register').value;
+    const passwordValue = document.querySelector('#password-register').value;
 
-    // Check if the user already exists
-    const exits = userLocal.find(user => user.email === emailValue);
-    if (exits) {
+    // Kiểm tra độ dài password trước khi thêm người dùng
+    if (passwordValue.length < 8) {
+        alert('Please enter a strong password (at least 8 characters).');
+        return;
+    }
+
+    // Kiểm tra xem email đã tồn tại chưa
+    const exists = users.some(user => user.email === emailValue);
+    if (exists) {
         alert('User already has an account! Please Log in.');
         return;
     }
 
-    // password
-    const passwordValue = document.querySelector('#password-register').value;
-    if (passwordValue.length < 8) {
-        alert('Please enter a strong password (at least 8 characters)');
-        return;
-    }
-
-    // Create userID
+    // Tạo userID duy nhất
     const userId = `user-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
 
-    const user = {
+    // Tạo đối tượng user mới
+    const newUser = {
         id: userId,
         name: nameValue,
         email: emailValue,
         password: passwordValue,
     };
 
-    // Add new user to the list
-    let users = JSON.parse(localStorage.getItem('user')) || [];
-    users.push(user);
+    // Thêm user mới vào mảng
+    users.push(newUser);
+
+    // Cập nhật lại localStorage
     localStorage.setItem('user', JSON.stringify(users));
 
-    console.log('Saved Users:', JSON.parse(localStorage.getItem('user'))); // Log stored users
+    console.log('Saved Users:', users); // Log danh sách user đã lưu
 
     alert('Registration successful!');
 
@@ -78,9 +84,10 @@ registerForm.addEventListener('submit', (event) => {
     document.querySelector('#email-register').value = '';
     document.querySelector('#password-register').value = '';
 
-    // Chuyển sang form đăng nhập
-    loginLink.click(); // Giả lập nhấp vào link đăng nhập
+    // Chuyển sang form đăng nhập (giả lập nhấp vào link)
+    loginLink.click();
 });
+
 
 
 //Create account for Admin
@@ -127,7 +134,7 @@ loginForm.addEventListener('submit', (event) => {
 
     // Đăng nhập thành công
     alert('Login successfully!');
-    window.location.href ='/pages/homePage.html';
+    window.location.href ='../pages/homePage.html';
 });
 
 //Password convinience

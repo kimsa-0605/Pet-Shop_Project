@@ -4,7 +4,7 @@ var fetured_products = [
         name: "Dried meat",
         quantity: 4,
         price: "200.000",
-        image: "/asserts/image/feturedHomepage1.webp",
+        image: "../asserts/image/feturedHomepage1.webp",
         description: "Roasted and smoked beef liver for dogs. Nutritional composition: Crude protein ≥18%, Crude fat ≥5%, Crude fiber ≤9%, Crude ash ≤1%, Minerals ≥1.5%, Calcium ≥1.2%, Phosphorus ≥0.5%, Salt ≤0.09%, Moisture ≤10%. Suitable for all breeds.",
         
     },
@@ -13,7 +13,7 @@ var fetured_products = [
         name: "Chicken jerky",
         quantity: 10,
         price: "150.000",
-        image: "/asserts/image/feturedHomepage2.webp",
+        image: "../asserts/image/feturedHomepage2.webp",
         description: "Chicken jerky strips, high in protein. Nutritional composition: Crude protein ≥22%, Crude fat ≤3%, Moisture ≤12%. Perfect for dogs with sensitive stomachs.",
     },
     {
@@ -21,7 +21,7 @@ var fetured_products = [
         name: "Beef bites",
         quantity: 8,
         price: "180.000",
-        image: "/asserts/image/feturedHomepage3.webp",
+        image: "../asserts/image/feturedHomepage3.webp",
         description: "Small beef bites, easy to chew. Nutritional composition: Crude protein ≥20%, Crude fat ≤5%, Moisture ≤11%. Ideal for training.",
     }
 ]
@@ -32,7 +32,7 @@ var best_selling = [
             name: "Chicken nugget",
             quantity: 10,
             price: "150.000",
-            image: "/asserts/image/feturedHomepage1.webp",
+            image: "../asserts/image/feturedHomepage1.webp",
             description: "Crunchy chicken nuggets. Nutritional composition: Crude protein ≥25%, Crude fat ≤7%, Moisture ≤12%. Perfect for snacks."
         },
         {
@@ -40,7 +40,7 @@ var best_selling = [
             name: "Salmon strips",
             quantity: 12,
             price: "200.000",
-            image: "/asserts/image/feturedHomepage1.webp",
+            image: "../asserts/image/feturedHomepage1.webp",
             description: "Soft salmon strips, rich in omega-3. Nutritional composition: Crude protein ≥22%, Crude fat ≤8%, Moisture ≤10%. Great for promoting healthy skin."
         },
         {
@@ -48,7 +48,7 @@ var best_selling = [
             name: "Lamb cubes",
             quantity: 6,
             price: "210.000",
-            image: "/asserts/image/feturedHomepage1.webp",
+            image: "../asserts/image/feturedHomepage1.webp",
             description: "Tender lamb cubes. Nutritional composition: Crude protein ≥24%, Crude fat ≤6%, Moisture ≤9%. Good for muscle growth."
         },
         {
@@ -56,7 +56,7 @@ var best_selling = [
             name: "Duck bites",
             quantity: 15,
             price: "190.000",
-            image: "/asserts/image/feturedHomepage1.webp",
+            image: "../asserts/image/feturedHomepage1.webp",
             description: "Tasty duck bites, easy to digest. Nutritional composition: Crude protein ≥21%, Crude fat ≤5%, Moisture ≤10%. Ideal for sensitive stomachs."
         },
         {
@@ -64,7 +64,7 @@ var best_selling = [
             name: "Turkey slices",
             quantity: 9,
             price: "170.000",
-            image: "/asserts/image/feturedHomepage1.webp",
+            image: "../asserts/image/feturedHomepage1.webp",
             description: "Lean turkey slices, high in protein. Nutritional composition: Crude protein ≥23%, Crude fat ≤4%, Moisture ≤11%. Excellent for active pets."
         },
         {
@@ -72,7 +72,7 @@ var best_selling = [
             name: "Pork twists",
             quantity: 8,
             price: "160.000",
-            image: "/asserts/image/feturedHomepage1.webp",
+            image: "../asserts/image/feturedHomepage1.webp",
             description: "Twisted pork sticks, chewy texture. Nutritional composition: Crude protein ≥20%, Crude fat ≤5%, Moisture ≤10%. Great for teeth cleaning."
         },
         {
@@ -80,7 +80,7 @@ var best_selling = [
             name: "Venison jerky",
             quantity: 7,
             price: "220.000",
-            image: "/asserts/image/feturedHomepage1.webp",
+            image: "../asserts/image/feturedHomepage1.webp",
             description: "Savory venison jerky, rich in iron. Nutritional composition: Crude protein ≥26%, Crude fat ≤6%, Moisture ≤9%. Ideal for muscle repair."
         },
         {
@@ -88,7 +88,7 @@ var best_selling = [
             name: "Tuna chips",
             quantity: 14,
             price: "140.000",
-            image: "/asserts/image/feturedHomepage1.webp",
+            image: "../asserts/image/feturedHomepage1.webp",
             description: "Crispy tuna chips, light and crunchy. Nutritional composition: Crude protein ≥22%, Crude fat ≤4%, Moisture ≤10%. Perfect for light snacking."
         }
 ]
@@ -153,17 +153,17 @@ function listProducts() {
 // -------------------------------------ĐIỀU HƯỚNG-------------------------------
 function dieu_huong(page) {
     if (page === 'AboutUs') {
-        location.assign("/pages/About.html");
+        location.assign("../pages/About.html");
     } else if (page === 'Fashion') {
         location.assign("detailt.html");
     } else if (page === 'Food') {
-        location.assign("/FoodPage/boloc.html");
+        location.assign("../FoodPage/boloc.html");
     } else if (page === 'Home') {
-        location.assign("/pages/homePage.html");
+        location.assign("../pages/homePage.html");
     }else if (page === 'Cart') {
-        location.assign("/pages/cartt.html");
+        location.assign("../pages/cartt.html");
     } else if (page === 'User') {
-        location.assign("/pages/profile.html");
+        location.assign("../pages/profile.html");
     }
     else {
         alert("Trang không tồn tại!");
@@ -370,7 +370,7 @@ document.getElementById("product-cart").addEventListener('click', function(event
 function Order() {
     if (userData.length > 0) {
         localStorage.setItem('orderDetails', JSON.stringify(userData));
-        window.location.href = "/pages/Order.html";
+        window.location.href = "../pages/Order.html";
     } else {
         alert("Giỏ hàng của bạn trống!");
     }

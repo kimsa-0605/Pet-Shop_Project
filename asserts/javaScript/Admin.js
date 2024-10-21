@@ -143,3 +143,121 @@ function SetName(string) {
     // lấy ksi tự đầu tiên và viết hoa sau đó cộng kí tự bắt đầu là 1 food hoạc fashion
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+
+//Quản lý người dùng
+
+const manageUser = document.querySelector('.users');
+
+manageUser.addEventListener('click', ()=> {
+    
+})
+
+
+// Hanh Part
+// Hàm để hiển thị nội dung tương ứng
+function showContent(sectionId) {
+    // Ẩn tất cả các khối nội dung
+    document.querySelectorAll('.content > div').forEach(div => {
+        div.classList.add('hidden');
+    });
+    
+    // Hiển thị nội dung được chọn
+    document.getElementById(sectionId).classList.remove('hidden');
+    
+    // Nếu là quản lý người dùng, thì tải danh sách người dùng
+    if (sectionId === 'user-management') {
+        loadUsers();
+    }else if (sectionId === 'order-management'){
+        loadOrders();
+    }
+}
+    
+// Hàm để tải danh sách người dùng từ localStorage
+
+// USERS
+function loadUsers() {
+    const users = JSON.parse(localStorage.getItem('user')) || [];
+    console.log(users)
+    const tableBody = document.getElementById('userTableBody');
+    tableBody.innerHTML = ''; // Xóa dữ liệu cũ
+
+    users.forEach(user => {
+        const row = `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.role || 'User'}</td>
+            </tr>
+        `;
+        tableBody.insertAdjacentHTML('beforeend', row);
+    });
+}
+    
+// Hiển thị mặc định phần quản lý người dùng khi load trang
+showContent('user-management');
+
+function loadOrders() {
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    const tableBody = document.getElementById('orderTableBody');
+    tableBody.innerHTML = ''; // Xóa dữ liệu cũ
+
+    // Nhóm sản phẩm theo userID và cộng dồn số lượng nếu trùng sản phẩm
+    const groupedOrders = {};
+
+    orders.forEach(order => {
+        order.products.forEach(product => {
+            const userID = product.userID;
+
+            // Khởi tạo thông tin nếu chưa có sản phẩm của userID
+            if (!groupedOrders[userID]) {
+                groupedOrders[userID] = {
+                    buyer: order.buyer,
+                    products: {},
+                };
+            }
+
+            // Kiểm tra nếu sản phẩm đã tồn tại trong danh sách
+            const productKey = `${product.name}-${product.price}`; // Khóa duy nhất cho sản phẩm
+            if (groupedOrders[userID].products[productKey]) {
+                // Nếu đã tồn tại, cộng thêm số lượng
+                groupedOrders[userID].products[productKey].quantity += product.quantity;
+            } else {
+                // Nếu chưa tồn tại, thêm sản phẩm mới
+                groupedOrders[userID].products[productKey] = {
+                    ...product,
+                    orderID: order.id,
+                    orderDate: order.orderDate,
+                };
+            }
+        });
+    });
+
+    // Hiển thị các đơn hàng sau khi nhóm và cộng dồn
+    Object.values(groupedOrders).forEach(group => {
+        // Tạo hàng cho thông tin người mua
+        const buyerRow = `
+            <tr>
+                <td colspan="6"><strong>Buyer: ${group.buyer.name}</strong></td>
+            </tr>
+        `;
+        tableBody.insertAdjacentHTML('beforeend', buyerRow);
+
+        // Hiển thị từng sản phẩm sau khi cộng dồn
+        Object.values(group.products).forEach(product => {
+            const totalPrice = (product.quantity * product.price).toFixed(3); // Giữ 3 số sau dấu thập phân
+            const productRow = `
+                <tr>
+                    <td>${product.orderID || 'N/A'}</td>
+                    <td>${product.orderDate || 'N/A'}</td>
+                    <td>${product.name}</td>
+                    <td>${product.quantity}</td>
+                    <td>${totalPrice}</td>
+                    <td>${group.buyer.address}</td>
+                </tr>
+            `;
+            tableBody.insertAdjacentHTML('beforeend', productRow);
+        });
+    });
+}
